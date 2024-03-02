@@ -1,4 +1,4 @@
-package co.edu.uniquindio.modelo;
+package co.edu.uniquindio.modelo.documentos;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -6,15 +6,21 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import lombok.*;
 
-@Document("moderador")
+@Document("comentario")
 @Getter
 @Setter
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Moderador extends Cuenta implements Serializable{
-
+public class Comentario implements Serializable{
     @Id
     @EqualsAndHashCode.Include
     private String codigo;
+
+    private LocalDate fecha;
+    private int calificacion;
+    private String cedulaCliente;
+    private int codNegocio;
+    private String mensaje;
+    private String respuesta;
 }
