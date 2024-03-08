@@ -1,6 +1,6 @@
-package co.edu.uniquindio.modelo.entidades;
+package co.edu.uniquindio.modelos.entidades;
 
-import co.edu.uniquindio.modelo.Estado;
+import co.edu.uniquindio.modelos.enums.Estado;
 import lombok.*;
 
 @Getter

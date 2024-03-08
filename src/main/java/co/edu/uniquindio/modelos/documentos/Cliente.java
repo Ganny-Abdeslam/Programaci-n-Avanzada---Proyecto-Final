@@ -1,7 +1,7 @@
-package co.edu.uniquindio.modelo.documentos;
+package co.edu.uniquindio.modelos.documentos;
 
-import co.edu.uniquindio.modelo.entidades.Cuenta;
-import co.edu.uniquindio.modelo.Estado;
+import co.edu.uniquindio.modelos.entidades.Cuenta;
+import co.edu.uniquindio.modelos.enums.Estado;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

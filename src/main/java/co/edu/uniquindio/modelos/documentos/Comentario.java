@@ -1,4 +1,4 @@
-package co.edu.uniquindio.modelo.documentos;
+package co.edu.uniquindio.modelos.documentos;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

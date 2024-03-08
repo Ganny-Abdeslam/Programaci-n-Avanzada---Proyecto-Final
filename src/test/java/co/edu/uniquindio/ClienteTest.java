@@ -1,7 +1,7 @@
 package co.edu.uniquindio;
 
-import co.edu.uniquindio.modelo.documentos.Cliente;
-import co.edu.uniquindio.modelo.Estado;
+import co.edu.uniquindio.modelos.documentos.Cliente;
+import co.edu.uniquindio.modelos.enums.Estado;
 import co.edu.uniquindio.repositorio.ClienteRepo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

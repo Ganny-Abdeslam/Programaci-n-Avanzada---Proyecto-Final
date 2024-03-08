@@ -1,4 +1,4 @@
-package co.edu.uniquindio.modelo;
+package co.edu.uniquindio.modelos.enums;
 
 public enum Estado {
     SOLICITADO(0),
