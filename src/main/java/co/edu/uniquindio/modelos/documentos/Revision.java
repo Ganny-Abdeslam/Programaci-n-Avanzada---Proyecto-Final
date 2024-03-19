@@ -1,7 +1,8 @@
-package co.edu.uniquindio.modelos.entidades;
+package co.edu.uniquindio.modelos.documentos;
 
 import co.edu.uniquindio.modelos.enums.EstadoNegocio;
 import lombok.*;
+import org.springframework.data.annotation.Id;
 
 import java.time.LocalDate;
 
@@ -11,8 +12,13 @@ import java.time.LocalDate;
 @Builder
 @AllArgsConstructor
 public class Revision {
-    String descripcion;
-    EstadoNegocio estadoNegocio;
-    LocalDate fecha;
-    String codModerador;
+
+    @Id
+    @EqualsAndHashCode.Include
+    private String codigo;
+
+    private String descripcion;
+    private EstadoNegocio estadoNegocio;
+    private LocalDate fecha;
+    private String codModerador;
 }

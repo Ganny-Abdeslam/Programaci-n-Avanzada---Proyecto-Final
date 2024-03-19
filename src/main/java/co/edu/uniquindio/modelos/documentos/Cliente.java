@@ -13,7 +13,6 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Cliente extends Cuenta implements Serializable{
 
     @Id

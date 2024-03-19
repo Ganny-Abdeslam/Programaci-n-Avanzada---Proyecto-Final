@@ -1,7 +1,6 @@
 package co.edu.uniquindio.modelos.documentos;
 
 import co.edu.uniquindio.modelos.entidades.Horario;
-import co.edu.uniquindio.modelos.entidades.Revision;
 import co.edu.uniquindio.modelos.entidades.Ubicacion;
 import co.edu.uniquindio.modelos.enums.Estado;
 import lombok.*;
@@ -20,15 +19,15 @@ import java.util.List;
 public class Negocio {
     @Id
     @EqualsAndHashCode.Include
-    int codigo;
+    private String codigo;
 
-    Ubicacion ubicacion;
-    String nombre;
-    String descripcion;
-    List<Horario> horarios;
-    int codTipoNegocio;
-    Estado estado;
-    List<String> imagenes;
-    String cedulaCliente;
-    List<Revision> revisiones;
+    private Ubicacion ubicacion;
+    private String nombre;
+    private String descripcion;
+    private List<Horario> horarios;
+    private int codTipoNegocio;
+    private Estado estado;
+    private List<String> imagenes;
+    private String cedulaCliente;
+    private List<Revision> revisiones;
 }

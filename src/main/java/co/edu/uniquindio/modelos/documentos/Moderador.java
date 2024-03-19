@@ -15,7 +15,6 @@ import java.io.Serializable;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Moderador extends Cuenta implements Serializable{
 
     @Id
