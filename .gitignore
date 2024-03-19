@@ -44,3 +44,4 @@ bin/
 ### Opcional ###
 .idea/gradle.xml
 .idea/workspace.xml
+.idea/*
