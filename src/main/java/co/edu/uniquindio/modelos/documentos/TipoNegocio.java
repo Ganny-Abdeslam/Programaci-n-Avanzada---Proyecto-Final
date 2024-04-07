@@ -9,11 +9,13 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @ToString
+@AllArgsConstructor
+@Builder
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class TipoNegocio {
     @Id
     @EqualsAndHashCode.Include
-    private Integer codigo;
+    private String codigo;
 
     private String valor;
     private int restriccion;

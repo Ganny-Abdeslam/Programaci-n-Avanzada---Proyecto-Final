@@ -13,6 +13,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @ToString
+@NoArgsConstructor
 public class Cliente extends Cuenta implements Serializable{
 
     @Id
