@@ -21,7 +21,7 @@ public class Comentario implements Serializable{
     private LocalDate fecha;
     private int calificacion;
     private String cedulaCliente;
-    private int codNegocio;
+    private String codNegocio;
     private String mensaje;
     private String respuesta;
 }
