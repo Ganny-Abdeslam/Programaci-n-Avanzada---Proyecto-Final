@@ -1,11 +1,8 @@
 package co.edu.uniquindio.servicios.interfaces;
 
-import co.edu.uniquindio.dto.CambioPasswordDTO;
-import co.edu.uniquindio.dto.RegistroUsuarioDTO;
+import co.edu.uniquindio.dto.RegistroClienteDTO;
 
 public interface ClienteServicio extends CuentaServicio {
-    void registrarse(RegistroUsuarioDTO registroUsuarioDTO)throws Exception;
-    void editarPerfil(RegistroUsuarioDTO registroUsuarioDTO)throws Exception;
-    void eliminarCuenta(RegistroUsuarioDTO registroUsuarioDTO)throws Exception;
-    void recuperarPasswrod(CambioPasswordDTO cambioPasswordDTO)throws Exception;
+    String registrarse(RegistroClienteDTO registroClienteDTO)throws Exception;
+    String editarPerfil(RegistroClienteDTO registroClienteDTO)throws Exception;
 }

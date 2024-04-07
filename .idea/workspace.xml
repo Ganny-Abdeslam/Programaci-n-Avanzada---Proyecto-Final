@@ -5,7 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e92966e-b5eb-4847-89cd-636a5532d325" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/dto/RegistrarNegocioDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/co/edu/uniquindio/TipoNegocioTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/dto/ItemClienteTDO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/dto/RegistroUsuarioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/dto/RegistroClienteDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/modelos/documentos/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/modelos/documentos/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/modelos/documentos/Comentario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/modelos/documentos/Comentario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/modelos/documentos/TipoNegocio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/modelos/documentos/TipoNegocio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/modelos/entidades/Cuenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/modelos/entidades/Cuenta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/repositorio/ClienteRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/repositorio/ClienteRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/repositorio/TipoNegocioRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/repositorio/TipoNegocioRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/servicios/implementaciones/ClienteImplementacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/servicios/implementaciones/ClienteImplementacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/servicios/interfaces/ClienteServicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/servicios/interfaces/ClienteServicio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/servicios/interfaces/CuentaServicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/servicios/interfaces/CuentaServicio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/co/edu/uniquindio/ClienteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/co/edu/uniquindio/ClienteTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,8 +76,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
+        <option value="Record" />
       </list>
     </option>
   </component>
@@ -89,6 +105,7 @@
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
     &quot;Gradle.Build ProgramacionAvanzada-ProyectoFinal.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.ClienteTest (1).executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ClienteTest.consultarClienteTest.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.ClienteTest.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.ClienteTest.registrarClienteTest (1).executor&quot;: &quot;Run&quot;,
     &quot;Gradle.ClienteTest.registrarClienteTest.executor&quot;: &quot;Run&quot;,
@@ -98,6 +115,8 @@
     &quot;Gradle.ProgramacionAvanzada-ProyectoFinal [build].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.ProgramacionAvanzada-ProyectoFinal [testClasses].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.Tests in 'Proyecto-Final'.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TipoNegocioTest.consultarTipoNegocioTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.TipoNegocioTest.registrarTipoNegocioTest.executor&quot;: &quot;Run&quot;,
     &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
     &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
     &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
@@ -140,8 +159,8 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ClienteTest.registrarClienteTest (1)">
-    <configuration name="ClienteTest (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.TipoNegocioTest.consultarTipoNegocioTest">
+    <configuration name="ClienteTest.consultarClienteTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -154,7 +173,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;co.edu.uniquindio.ClienteTest&quot;" />
+            <option value="&quot;co.edu.uniquindio.ClienteTest.consultarClienteTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -189,48 +208,52 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="ProgramacionAvanzada-ProyectoFinal [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TipoNegocioTest.consultarTipoNegocioTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="build" />
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;co.edu.uniquindio.TipoNegocioTest.consultarTipoNegocioTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="ProgramacionAvanzada-ProyectoFinal [testClasses]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TipoNegocioTest.registrarTipoNegocioTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="testClasses" />
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;co.edu.uniquindio.TipoNegocioTest.registrarTipoNegocioTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
+      <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
@@ -261,20 +284,20 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.TipoNegocioTest.consultarTipoNegocioTest" />
+        <item itemvalue="Gradle.TipoNegocioTest.registrarTipoNegocioTest" />
+        <item itemvalue="Gradle.ClienteTest.consultarClienteTest" />
         <item itemvalue="Gradle.ClienteTest.registrarClienteTest (1)" />
         <item itemvalue="Spring Boot.ProyectoApplication" />
-        <item itemvalue="Gradle.ClienteTest (1)" />
-        <item itemvalue="Gradle.ProgramacionAvanzada-ProyectoFinal [testClasses]" />
-        <item itemvalue="Gradle.ProgramacionAvanzada-ProyectoFinal [build]" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-25a4bffe" />
         <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
-        <option value="jdk-17.0.10-temurin-17.0.10-4caba194b151-f6707456" />
+        <option value="jdk-17.0.10-temurin-17.0.10-4caba194b151-b3785831" />
+        <option value="jdk-19.0.2-corretto-19.0.2-4caba194b151-48ba4555" />
       </set>
     </attachedChunks>
   </component>
@@ -293,6 +316,12 @@
       <workItem from="1709341431482" duration="5169000" />
       <workItem from="1709393593044" duration="999000" />
       <workItem from="1709766698607" duration="5417000" />
+      <workItem from="1711814519352" duration="3976000" />
+      <workItem from="1712116987664" duration="2017000" />
+      <workItem from="1712205229123" duration="1852000" />
+      <workItem from="1712418408482" duration="3401000" />
+      <workItem from="1712463570214" duration="159000" />
+      <workItem from="1712499285849" duration="803000" />
     </task>
     <servers />
   </component>

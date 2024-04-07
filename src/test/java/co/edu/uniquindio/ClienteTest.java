@@ -32,4 +32,11 @@ public class ClienteTest {
         Cliente registro = clienteRepo.save( cliente );
         Assertions.assertNotNull(registro);
     }
+
+    @Test
+    public void consultarClienteTest(){
+        Cliente cliente = clienteRepo.findById("1213444").orElse(null);
+
+        Assertions.assertNotNull(cliente);
+    }
 }
