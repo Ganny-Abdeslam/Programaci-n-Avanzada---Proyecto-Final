@@ -15,7 +15,6 @@ public record RegistroClienteDTO(
         @NotNull(message = "La fecha de nacimiento no puede estar en blanco")
         @Past(message = "La fecha de nacimiento debe estar en el pasado") LocalDate fechaNacimiento,
         String ciudad,
-        String foto,
-        String ciudadResidencia
+        String foto
 ) {
 }
