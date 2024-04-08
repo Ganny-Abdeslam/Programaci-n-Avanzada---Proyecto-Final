@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @SpringBootApplication
 @Service
 public class ComentarioImplementacion implements ComentariosServicio {
@@ -49,8 +51,9 @@ public class ComentarioImplementacion implements ComentariosServicio {
     }
 
     @Override
-    public void listarComentariosNegocio() {
-
+    public List<Comentario> listarComentariosNegocio(String codNegocio) {
+        List<Comentario> comentarioList = comentarioRepo.listaComentariosNegocio(codNegocio);
+        return comentarioList;
     }
 
     @Override

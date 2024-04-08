@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.util.Assert;
 
 import java.time.LocalDate;
 
@@ -22,7 +23,7 @@ public class ComentarioImplementacionTest {
         LocalDate fecha = LocalDate.of(2000, 1, 1);
 
         RegistroComentarioDTO registroComentarioDTO = new RegistroComentarioDTO(fecha,4,
-                "111122224","1","Esto es un comentario"
+                "111122224","5","Esto es un comentario"
         );
 
         Assertions.assertNotNull(comentarioImplementacion.crearComentario(registroComentarioDTO));
@@ -40,5 +41,10 @@ public class ComentarioImplementacionTest {
 
         comentarioImplementacion.responderComentario(registroRespuestaDTO);
 
+    }
+
+    @Test
+    public void listarComentariosNegocioTest(){
+        Assertions.assertEquals(4,comentarioImplementacion.listarComentariosNegocio("1").toArray().length);
     }
 }
