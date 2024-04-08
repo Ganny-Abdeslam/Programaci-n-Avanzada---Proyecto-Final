@@ -62,7 +62,7 @@ public class ClienteImplementacion implements ClienteServicio {
         cliente.setFoto( registroClienteDTO.foto() );
         cliente.setEmail( registroClienteDTO.email() );
         cliente.setPassword( registroClienteDTO.password() );
-        cliente.setEstado(Estado.ACTIVO);
+        cliente.setEstado(Estado.ACTIVO.getNumEstado());
         Cliente clienteGuardado = clienteRepo.save(cliente);
 
         return clienteGuardado.getCedula();

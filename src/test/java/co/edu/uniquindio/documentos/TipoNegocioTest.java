@@ -1,4 +1,4 @@
-package co.edu.uniquindio;
+package co.edu.uniquindio.documentos;
 
 import co.edu.uniquindio.modelos.documentos.TipoNegocio;
 import co.edu.uniquindio.repositorio.TipoNegocioRepo;

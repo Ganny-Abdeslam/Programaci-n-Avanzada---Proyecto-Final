@@ -1,7 +1,6 @@
 package co.edu.uniquindio.modelos.documentos;
 
 import co.edu.uniquindio.modelos.entidades.Cuenta;
-import co.edu.uniquindio.modelos.enums.Estado;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,7 +20,7 @@ public class Moderador extends Cuenta implements Serializable{
     @EqualsAndHashCode.Include
     private String codigo;
 
-    public Moderador(String email, String nombre, String password, Estado estado, String codigo) {
+    public Moderador(String email, String nombre, String password, int estado, String codigo) {
         super(email, nombre, password, estado);
         this.codigo = codigo;
     }

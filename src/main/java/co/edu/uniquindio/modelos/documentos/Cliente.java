@@ -1,7 +1,6 @@
 package co.edu.uniquindio.modelos.documentos;
 
 import co.edu.uniquindio.modelos.entidades.Cuenta;
-import co.edu.uniquindio.modelos.enums.Estado;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -26,7 +25,7 @@ public class Cliente extends Cuenta implements Serializable{
     private String foto;
 
     @Builder
-    public Cliente(String email, String nombre, String password, Estado estado, String cedula, String nickname, LocalDate fechaNacimiento, String ciudad, String foto) {
+    public Cliente(String email, String nombre, String password, int estado, String cedula, String nickname, LocalDate fechaNacimiento, String ciudad, String foto) {
         super(email, nombre, password, estado);
         this.cedula = cedula;
         this.nickname = nickname;

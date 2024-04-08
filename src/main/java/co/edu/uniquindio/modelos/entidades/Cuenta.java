@@ -1,6 +1,5 @@
 package co.edu.uniquindio.modelos.entidades;
 
-import co.edu.uniquindio.modelos.enums.Estado;
 import lombok.*;
 
 @Getter
@@ -12,5 +11,5 @@ public class Cuenta {
     private String email;
     private String nombre;
     private String password;
-    private Estado estado;
+    private int estado;
 }

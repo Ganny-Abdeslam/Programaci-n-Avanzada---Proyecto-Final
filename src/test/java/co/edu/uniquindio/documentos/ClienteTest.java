@@ -1,4 +1,4 @@
-package co.edu.uniquindio;
+package co.edu.uniquindio.documentos;
 
 import co.edu.uniquindio.modelos.documentos.Cliente;
 import co.edu.uniquindio.modelos.enums.Estado;
@@ -23,7 +23,7 @@ public class ClienteTest {
                 .nombre("Pepito perez")
                 .email("pepito@email.com")
                 .foto("null")
-                .estado(Estado.ACTIVO)
+                .estado(Estado.ACTIVO.getNumEstado())
                 .fechaNacimiento(LocalDate.of(2000, 2, 28))
                 .nickname("peperez")
                 .ciudad("Armenia")

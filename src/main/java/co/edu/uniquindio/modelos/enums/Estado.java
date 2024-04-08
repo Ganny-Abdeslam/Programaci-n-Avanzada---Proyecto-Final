@@ -7,11 +7,11 @@ public enum Estado {
 
     private final int estado;
 
-    Estado(int estado){
+    Estado(int estado) {
         this.estado = estado;
     }
 
     public int getNumEstado(){
-        return  estado;
+        return  this.estado;
     }
 }
