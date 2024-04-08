@@ -31,9 +31,9 @@ public class ComentarioImplementacion implements ComentariosServicio {
             throw new Exception("La cedula no existe");
         }
 
-        if ( !existeNegocio(registroComentarioDTO.codNegocio()) ){
+        /*if ( !existeNegocio(registroComentarioDTO.codNegocio()) ){
             throw new Exception("El negocio no existe");
-        }
+        }*/
 
         Comentario comentario = new Comentario();
 
@@ -60,11 +60,11 @@ public class ComentarioImplementacion implements ComentariosServicio {
             throw new Exception("La cedula no existe");
         }
 
-        if ( !existeNegocio(registroRespuestaDTO.codNegocio()) ){
+        /*if ( !existeNegocio(registroRespuestaDTO.codNegocio()) ){
             throw new Exception("El negocio no existe");
-        }
+        }*/
 
-        if ( !existeIdComentario(registroRespuestaDTO.codNegocio()) ){
+        if ( !existeIdComentario(registroRespuestaDTO.idComentarioOrigen()) ){
             throw new Exception("El comentario no existe");
         }
 
@@ -78,6 +78,8 @@ public class ComentarioImplementacion implements ComentariosServicio {
         Comentario comentarioOrigen = comentarioRepo.findById(registroRespuestaDTO.idComentarioOrigen()).orElse(null);
 
         comentarioOrigen.setRespuesta(idRespuesta);
+
+        comentarioRepo.save(comentarioOrigen);
     }
 
     private boolean existeCedula( String cedula ){

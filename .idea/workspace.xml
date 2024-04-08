@@ -5,12 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e92966e-b5eb-4847-89cd-636a5532d325" name="Changes" comment="&quot;a&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/dto/RegistroComentarioDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/dto/RegistroRespuestaDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/servicios/implementaciones/ComentarioImplementacion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/co/edu/uniquindio/implementaciones/ComentarioImplementacionTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/modelos/documentos/Comentario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/modelos/documentos/Comentario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/servicios/interfaces/ComentariosServicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/servicios/interfaces/ComentariosServicio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/servicios/implementaciones/ComentarioImplementacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/servicios/implementaciones/ComentarioImplementacion.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,8 +64,8 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="Record" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -78,6 +75,9 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/test/java/registrarCliente.java" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -94,11 +94,14 @@
   &quot;keyToString&quot;: {
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
     &quot;Gradle.Build ProgramacionAvanzada-ProyectoFinal.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ClienteImplementacionTest.registrarseTest.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.ClienteTest (1).executor&quot;: &quot;Run&quot;,
     &quot;Gradle.ClienteTest.consultarClienteTest.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.ClienteTest.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.ClienteTest.registrarClienteTest (1).executor&quot;: &quot;Run&quot;,
     &quot;Gradle.ClienteTest.registrarClienteTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ComentarioImplementacionTest.crearComentarioTest.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ComentarioImplementacionTest.responderComentarioTest.executor&quot;: &quot;Run&quot;,
     &quot;Gradle.ProgramacionAvanzada-ProyectoFinal [:ProyectoApplication.main()].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.ProgramacionAvanzada-ProyectoFinal [bootRun].executor&quot;: &quot;Run&quot;,
     &quot;Gradle.ProgramacionAvanzada-ProyectoFinal [bootTestRun].executor&quot;: &quot;Run&quot;,
@@ -149,8 +152,8 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.TipoNegocioTest.consultarTipoNegocioTest">
-    <configuration name="ClienteTest.consultarClienteTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.ComentarioImplementacionTest.responderComentarioTest">
+    <configuration name="ClienteImplementacionTest.registrarseTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -163,7 +166,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;co.edu.uniquindio.ClienteTest.consultarClienteTest&quot;" />
+            <option value="&quot;co.edu.uniquindio.implementaciones.ClienteImplementacionTest.registrarseTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -174,7 +177,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="ClienteTest.registrarClienteTest (1)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ComentarioImplementacionTest.crearComentarioTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -187,7 +190,31 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;co.edu.uniquindio.ClienteTest.registrarClienteTest&quot;" />
+            <option value="&quot;co.edu.uniquindio.implementaciones.ComentarioImplementacionTest.crearComentarioTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ComentarioImplementacionTest.responderComentarioTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;co.edu.uniquindio.implementaciones.ComentarioImplementacionTest.responderComentarioTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -259,26 +286,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProyectoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="Proyecto-Final.main" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="co.edu.uniquindio.ProyectoApplication" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="co.edu.uniquindio.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.ComentarioImplementacionTest.responderComentarioTest" />
+        <item itemvalue="Gradle.ComentarioImplementacionTest.crearComentarioTest" />
+        <item itemvalue="Gradle.ClienteImplementacionTest.registrarseTest" />
         <item itemvalue="Gradle.TipoNegocioTest.consultarTipoNegocioTest" />
         <item itemvalue="Gradle.TipoNegocioTest.registrarTipoNegocioTest" />
-        <item itemvalue="Gradle.ClienteTest.consultarClienteTest" />
-        <item itemvalue="Gradle.ClienteTest.registrarClienteTest (1)" />
-        <item itemvalue="Spring Boot.ProyectoApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -286,8 +300,6 @@
     <attachedChunks>
       <set>
         <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-5cd809f4" />
-        <option value="jdk-17.0.10-temurin-17.0.10-4caba194b151-b3785831" />
-        <option value="jdk-19.0.2-corretto-19.0.2-4caba194b151-48ba4555" />
       </set>
     </attachedChunks>
   </component>
@@ -312,6 +324,7 @@
       <workItem from="1712418408482" duration="3401000" />
       <workItem from="1712463570214" duration="159000" />
       <workItem from="1712499285849" duration="803000" />
+      <workItem from="1712533209670" duration="1242000" />
     </task>
     <servers />
   </component>
@@ -320,6 +333,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="&quot;a&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;a&quot;" />
+    <MESSAGE value="&quot;Implementacion comentarios&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Implementacion comentarios&quot;" />
   </component>
 </project>
