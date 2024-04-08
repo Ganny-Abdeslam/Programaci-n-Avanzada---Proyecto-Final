@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e92966e-b5eb-4847-89cd-636a5532d325" name="Changes" comment="" />
+    <list default="true" id="2e92966e-b5eb-4847-89cd-636a5532d325" name="Changes" comment="&quot;Si&quot;">
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/servicios/implementaciones/NegocioImplementacion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/co/edu/uniquindio/implementaciones/NegocioImplementacionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/dto/RegistrarNegocioDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/dto/RegistrarNegocioDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/modelos/documentos/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/modelos/documentos/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/modelos/documentos/Moderador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/modelos/documentos/Moderador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/modelos/documentos/Negocio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/modelos/documentos/Negocio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/modelos/entidades/Cuenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/modelos/entidades/Cuenta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/modelos/enums/Estado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/modelos/enums/Estado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/repositorio/NegocioRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/repositorio/NegocioRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/servicios/implementaciones/ClienteImplementacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/servicios/implementaciones/ClienteImplementacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/servicios/implementaciones/ModeradorServicioImplementacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/servicios/implementaciones/ModeradorImplementacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/servicios/interfaces/NegocioServicio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/servicios/interfaces/NegocioServicio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/co/edu/uniquindio/ClienteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/co/edu/uniquindio/documentos/ClienteTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/co/edu/uniquindio/TipoNegocioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/co/edu/uniquindio/documentos/TipoNegocioTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,6 +111,7 @@
     "Gradle.ClienteTest.registrarClienteTest (1).executor": "Run",
     "Gradle.ClienteTest.registrarClienteTest.executor": "Run",
     "Gradle.EmailTest.envioEmailTest.executor": "Run",
+    "Gradle.NegocioImplementacionTest.creaNegocioTest.executor": "Run",
     "Gradle.ProgramacionAvanzada-ProyectoFinal [:ProyectoApplication.main()].executor": "Run",
     "Gradle.ProgramacionAvanzada-ProyectoFinal [bootRun].executor": "Run",
     "Gradle.ProgramacionAvanzada-ProyectoFinal [bootTestRun].executor": "Run",
@@ -145,7 +162,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ClienteImplementacionTest.registrarseTest">
+  <component name="RunManager" selected="Gradle.NegocioImplementacionTest.creaNegocioTest">
     <configuration name="ClienteImplementacionTest.editarPerfil" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -194,6 +211,30 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="ClienteTest.registrarClienteTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;co.edu.uniquindio.ClienteTest.registrarClienteTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="EmailTest.envioEmailTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -218,29 +259,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="ProgramacionAvanzada-ProyectoFinal [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="TipoNegocioTest.consultarTipoNegocioTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="NegocioImplementacionTest.creaNegocioTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -253,7 +272,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;co.edu.uniquindio.TipoNegocioTest.consultarTipoNegocioTest&quot;" />
+            <option value="&quot;co.edu.uniquindio.implementaciones.NegocioImplementacionTest.creaNegocioTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -279,11 +298,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.NegocioImplementacionTest.creaNegocioTest" />
         <item itemvalue="Gradle.ClienteImplementacionTest.registrarseTest" />
         <item itemvalue="Gradle.ClienteImplementacionTest.editarPerfil" />
+        <item itemvalue="Gradle.ClienteTest.registrarClienteTest" />
         <item itemvalue="Gradle.EmailTest.envioEmailTest" />
-        <item itemvalue="Gradle.ProgramacionAvanzada-ProyectoFinal [build]" />
-        <item itemvalue="Gradle.TipoNegocioTest.consultarTipoNegocioTest" />
       </list>
     </recent_temporary>
   </component>
@@ -316,11 +335,25 @@
       <workItem from="1712205229123" duration="1852000" />
       <workItem from="1712418408482" duration="3401000" />
       <workItem from="1712463570214" duration="159000" />
-      <workItem from="1712499285849" duration="12765000" />
+      <workItem from="1712499285849" duration="17571000" />
+      <workItem from="1712531734531" duration="3253000" />
     </task>
+    <task id="LOCAL-00001" summary="&quot;Si&quot;">
+      <option name="closed" value="true" />
+      <created>1712515434127</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1712515434127</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="&quot;Si&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Si&quot;" />
   </component>
 </project>
