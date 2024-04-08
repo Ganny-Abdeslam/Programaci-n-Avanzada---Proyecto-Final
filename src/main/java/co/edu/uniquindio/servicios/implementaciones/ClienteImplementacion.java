@@ -9,6 +9,7 @@ import co.edu.uniquindio.repositorio.ClienteRepo;
 import co.edu.uniquindio.servicios.interfaces.ClienteServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -36,7 +37,13 @@ public class ClienteImplementacion implements ClienteServicio {
             throw new Exception("El nickname ya se encuentra registrado por otro usuario");
         }
 
-        return iteraccionCliente(registroClienteDTO);
+        Cliente cliente = interaccionCliente(registroClienteDTO);
+
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String passwordEncriptada = passwordEncoder.encode( registroClienteDTO.password() );
+        cliente.setPassword( passwordEncriptada );
+
+        return cliente.getCedula();
     }
 
     private boolean existeCedula( String cedula ){
@@ -51,7 +58,7 @@ public class ClienteImplementacion implements ClienteServicio {
         return clienteRepo.findByEmail(email).isPresent();
     }
 
-    private String iteraccionCliente(RegistroClienteDTO registroClienteDTO)throws Exception{
+    private Cliente interaccionCliente(RegistroClienteDTO registroClienteDTO)throws Exception{
         Cliente cliente = new Cliente();
 
         cliente.setCedula( registroClienteDTO.cedula() );
@@ -61,15 +68,13 @@ public class ClienteImplementacion implements ClienteServicio {
         cliente.setFechaNacimiento( registroClienteDTO.fechaNacimiento() );
         cliente.setFoto( registroClienteDTO.foto() );
         cliente.setEmail( registroClienteDTO.email() );
-        cliente.setPassword( registroClienteDTO.password() );
         cliente.setEstado(Estado.ACTIVO.getNumEstado());
-        Cliente clienteGuardado = clienteRepo.save(cliente);
 
-        return clienteGuardado.getCedula();
+        return clienteRepo.save(cliente);
     }
     @Override
     public String editarPerfil(RegistroClienteDTO registroClienteDTO) throws Exception {
-        return iteraccionCliente(registroClienteDTO);
+        return interaccionCliente(registroClienteDTO).getCedula();
     }
 
     @Override

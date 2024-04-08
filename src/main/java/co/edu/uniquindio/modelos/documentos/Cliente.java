@@ -33,4 +33,8 @@ public class Cliente extends Cuenta implements Serializable{
         this.ciudad = ciudad;
         this.foto = foto;
     }
+
+    public String getCodigo(){
+        return "";
+    }
 }
