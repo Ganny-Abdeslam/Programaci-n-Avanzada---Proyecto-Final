@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e92966e-b5eb-4847-89cd-636a5532d325" name="Changes" comment="&quot;a&quot;">
-      <change afterPath="$PROJECT_DIR$/src/test/java/co/edu/uniquindio/implementaciones/ComentarioImplementacionTest.java" afterDir="false" />
+    <list default="true" id="2e92966e-b5eb-4847-89cd-636a5532d325" name="Changes" comment="&quot;Test comentarios&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/servicios/implementaciones/ComentarioImplementacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/servicios/implementaciones/ComentarioImplementacion.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -324,8 +322,17 @@
       <workItem from="1712418408482" duration="3401000" />
       <workItem from="1712463570214" duration="159000" />
       <workItem from="1712499285849" duration="803000" />
-      <workItem from="1712533209670" duration="1242000" />
+      <workItem from="1712533209670" duration="2013000" />
     </task>
+    <task id="LOCAL-00001" summary="&quot;Test comentarios&quot;">
+      <option name="closed" value="true" />
+      <created>1712534795816</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1712534795816</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -334,6 +341,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="&quot;a&quot;" />
     <MESSAGE value="&quot;Implementacion comentarios&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;Implementacion comentarios&quot;" />
+    <MESSAGE value="&quot;Test comentarios&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;Test comentarios&quot;" />
   </component>
 </project>
