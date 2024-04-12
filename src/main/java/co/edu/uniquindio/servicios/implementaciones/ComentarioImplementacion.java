@@ -33,9 +33,9 @@ public class ComentarioImplementacion implements ComentariosServicio {
             throw new Exception("La cedula no existe");
         }
 
-        /*if ( !existeNegocio(registroComentarioDTO.codNegocio()) ){
+        if ( !existeNegocio(registroComentarioDTO.codNegocio()) ){
             throw new Exception("El negocio no existe");
-        }*/
+        }
 
         Comentario comentario = new Comentario();
 
@@ -63,9 +63,9 @@ public class ComentarioImplementacion implements ComentariosServicio {
             throw new Exception("La cedula no existe");
         }
 
-        /*if ( !existeNegocio(registroRespuestaDTO.codNegocio()) ){
+        if ( !existeNegocio(registroRespuestaDTO.codNegocio()) ){
             throw new Exception("El negocio no existe");
-        }*/
+        }
 
         if ( !existeIdComentario(registroRespuestaDTO.idComentarioOrigen()) ){
             throw new Exception("El comentario no existe");

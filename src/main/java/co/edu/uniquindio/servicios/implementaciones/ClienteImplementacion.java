@@ -1,6 +1,7 @@
 package co.edu.uniquindio.servicios.implementaciones;
 
 import co.edu.uniquindio.dto.CambioPasswordDTO;
+import co.edu.uniquindio.dto.EditarClienteDTO;
 import co.edu.uniquindio.dto.EmailDTO;
 import co.edu.uniquindio.dto.RegistroClienteDTO;
 import co.edu.uniquindio.modelos.documentos.Cliente;
@@ -43,6 +44,8 @@ public class ClienteImplementacion implements ClienteServicio {
         String passwordEncriptada = passwordEncoder.encode( registroClienteDTO.password() );
         cliente.setPassword( passwordEncriptada );
 
+        clienteRepo.save(cliente);
+
         return cliente.getCedula();
     }
 
@@ -73,8 +76,16 @@ public class ClienteImplementacion implements ClienteServicio {
         return clienteRepo.save(cliente);
     }
     @Override
-    public String editarPerfil(RegistroClienteDTO registroClienteDTO) throws Exception {
-        return interaccionCliente(registroClienteDTO).getCedula();
+    public String editarPerfil(EditarClienteDTO editarClienteDTO) throws Exception {
+
+        Cliente cliente = clienteRepo.findById(editarClienteDTO.cedula()).orElse(null);
+
+        cliente.setNombre(editarClienteDTO.nombre() != null ? editarClienteDTO.nombre() : cliente.getNombre());
+        cliente.setFoto(editarClienteDTO.foto() != null ? editarClienteDTO.foto() : cliente.getFoto());
+        cliente.setCiudad(editarClienteDTO.ciudad() != null ? editarClienteDTO.ciudad() : cliente.getCiudad());
+
+        clienteRepo.save(cliente);
+        return "Se actualizo el cliente exitosamente";
     }
 
     @Override

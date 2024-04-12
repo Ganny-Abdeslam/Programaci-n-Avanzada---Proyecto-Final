@@ -1,0 +1,38 @@
+package co.edu.uniquindio.controladores;
+
+import co.edu.uniquindio.dto.EditarClienteDTO;
+import co.edu.uniquindio.dto.MensajeDTO;
+import co.edu.uniquindio.dto.RegistroClienteDTO;
+import co.edu.uniquindio.servicios.implementaciones.ClienteImplementacion;
+import co.edu.uniquindio.servicios.interfaces.ClienteServicio;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import static org.springframework.http.ResponseEntity.ok;
+
+@RestController
+@RequiredArgsConstructor
+@RequestMapping("/api/clientes")
+public class ClienteControlador {
+
+    private final ClienteImplementacion clienteImplementacion;
+
+    @PostMapping("/registrar-cliente")
+    public ResponseEntity<MensajeDTO<String>> registrarCliente(@Valid @RequestBody RegistroClienteDTO registroClienteDTO)throws Exception{
+        clienteImplementacion.registrarse(registroClienteDTO);
+        return ResponseEntity.ok().body( new MensajeDTO<>(false, "Cliente registrado correctamente"));
+    }
+
+    @PutMapping("/editar-perfil")
+    public ResponseEntity<MensajeDTO<String>> actualizarCliente(@Valid @RequestBody EditarClienteDTO editarClienteDTO)throws Exception{
+        return ResponseEntity.ok().body( new MensajeDTO<>(false, clienteImplementacion.editarPerfil(editarClienteDTO)));
+    }
+
+    @DeleteMapping("/eliminar/{codigo}")
+    public ResponseEntity<MensajeDTO<String>> eliminarCuenta(String codigo)throws Exception{
+        clienteImplementacion.eliminarCuenta(codigo);
+        return ResponseEntity.ok().body( new MensajeDTO<>(false, "Cliente eliminado correctamente"));
+    }
+}

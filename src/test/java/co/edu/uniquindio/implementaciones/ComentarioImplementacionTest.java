@@ -23,7 +23,7 @@ public class ComentarioImplementacionTest {
         LocalDate fecha = LocalDate.of(2000, 1, 1);
 
         RegistroComentarioDTO registroComentarioDTO = new RegistroComentarioDTO(fecha,4,
-                "111122224","5","Esto es un comentario"
+                "111122224","661333c59f5d583c903e7ba2","Esto es un comentario"
         );
 
         Assertions.assertNotNull(comentarioImplementacion.crearComentario(registroComentarioDTO));
@@ -36,7 +36,7 @@ public class ComentarioImplementacionTest {
         LocalDate fecha = LocalDate.of(2000, 1, 1);
 
         RegistroRespuestaDTO registroRespuestaDTO = new RegistroRespuestaDTO(fecha,
-                "111122224","1","Esto es una respuesta","6612f4391a2f75611c62468b"
+                "111122224","661333c59f5d583c903e7ba2","Esto es una respuesta","66135b7f23004d5639656b5d"
         );
 
         comentarioImplementacion.responderComentario(registroRespuestaDTO);
