@@ -4,13 +4,10 @@ import co.edu.uniquindio.dto.EditarClienteDTO;
 import co.edu.uniquindio.dto.MensajeDTO;
 import co.edu.uniquindio.dto.RegistroClienteDTO;
 import co.edu.uniquindio.servicios.implementaciones.ClienteImplementacion;
-import co.edu.uniquindio.servicios.interfaces.ClienteServicio;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
 @RequiredArgsConstructor
