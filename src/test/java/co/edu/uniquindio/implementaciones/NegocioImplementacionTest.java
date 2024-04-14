@@ -49,6 +49,10 @@ public class NegocioImplementacionTest {
     }
 
     @Test
+    public void filtarEstadoTest(){
+        Assertions.assertEquals(1, negocioImplementacion.filtrarPorEstado(1).toArray().length);
+    }
+    @Test
     public void listarNegociosPropietarioTest(){
         Assertions.assertEquals(1,negocioImplementacion.listarNegociosPropietario("111122224").toArray().length);
     }

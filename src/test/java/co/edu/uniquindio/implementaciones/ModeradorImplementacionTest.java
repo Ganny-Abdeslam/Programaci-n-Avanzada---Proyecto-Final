@@ -19,7 +19,7 @@ public class ModeradorImplementacionTest {
         LocalDate fecha = LocalDate.of(2000, 1, 1);
 
         RegistrarRevisionNegocioDTO registrarRevisionNegocioDTO = new RegistrarRevisionNegocioDTO(
-                "1234","661c0fabd1eaaa54c9d6098e","",fecha);
+                "1234","661c0d040359df17bc0a9a59","",fecha);
 
         moderadorImplementacion.aceptarNegocio(registrarRevisionNegocioDTO);
     }
@@ -29,7 +29,7 @@ public class ModeradorImplementacionTest {
         LocalDate fecha = LocalDate.of(2000, 1, 1);
 
         RegistrarRevisionNegocioDTO registrarRevisionNegocioDTO = new RegistrarRevisionNegocioDTO(
-                "1234","661c0fabd1eaaa54c9d6098e","esta es un motivo del rechazo",fecha);
+                "1234","661c0d040359df17bc0a9a59","esta es un motivo del rechazo",fecha);
 
         moderadorImplementacion.rechazarNegocio(registrarRevisionNegocioDTO);
     }

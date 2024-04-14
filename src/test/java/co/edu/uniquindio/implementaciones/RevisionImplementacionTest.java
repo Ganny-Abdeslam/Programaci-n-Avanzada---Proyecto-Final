@@ -15,7 +15,7 @@ public class RevisionImplementacionTest {
     public void listarPorEstadoTest(){
 
         ListarRevisionesDTO listarRevisionesDTO = new ListarRevisionesDTO(
-                "1234","1"
+                "1234",1
         );
 
         Assertions.assertEquals(2,revisionImplementacion.listarPorEstado(listarRevisionesDTO).toArray().length);

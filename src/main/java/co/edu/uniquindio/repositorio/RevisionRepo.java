@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface RevisionRepo extends MongoRepository<Revision, String> {
 
-    @Query("{'estadoNegocio':?0,'codModerador.$id':?1}")
-    List<Revision> estadoNegocioAndCodModerador(String estadoNegocio, String codModerador);
+    @Query("{'estadoNegocio':?0,'codModerador':?1}")
+    List<Revision> estadoNegocioAndCodModerador(int estadoNegocio, String codModerador);
 }

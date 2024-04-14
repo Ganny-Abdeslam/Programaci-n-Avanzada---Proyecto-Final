@@ -72,7 +72,7 @@ public class NegocioImplementacion implements NegocioServicio {
     }
 
     @Override
-    public List<Negocio> filtrarPorEstado(String estado) {
+    public List<Negocio> filtrarPorEstado(int estado) {
         return negocioRepo.findByEstado(estado);
     }
 

@@ -11,7 +11,7 @@ public interface NegocioServicio {
     void actualizarNegocio();
     void buscarNegocios();
     void eliminarNegocio(String codNegocio);
-    List<Negocio> filtrarPorEstado(String estado);
+    List<Negocio> filtrarPorEstado(int estado);
     List<Negocio> listarNegociosPropietario(String cedula);
     void cambiarEstado(CambioEstadoDTO cambioEstadoDTO) ;
 }
