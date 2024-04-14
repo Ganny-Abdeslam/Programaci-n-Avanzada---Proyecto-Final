@@ -1,7 +1,6 @@
 package co.edu.uniquindio.implementaciones;
 
 import co.edu.uniquindio.dto.RegistrarNegocioDTO;
-import co.edu.uniquindio.modelos.documentos.Negocio;
 import co.edu.uniquindio.modelos.entidades.Horario;
 import co.edu.uniquindio.modelos.entidades.Ubicacion;
 import co.edu.uniquindio.servicios.implementaciones.NegocioImplementacion;
@@ -36,7 +35,7 @@ public class NegocioImplementacionTest {
                 "Este es un negocio de prueba",
                 horarios,
                 "1",
-                new ArrayList<String>(),
+                new ArrayList<>(),
                 "111122224"
         );
 
