@@ -1,11 +1,13 @@
 package co.edu.uniquindio.servicios.implementaciones;
 
+import co.edu.uniquindio.dto.CambioEstadoDTO;
 import co.edu.uniquindio.dto.CambioPasswordDTO;
 import co.edu.uniquindio.dto.RegistrarRevisionNegocioDTO;
 import co.edu.uniquindio.dto.RegistroClienteDTO;
 import co.edu.uniquindio.modelos.documentos.Moderador;
 import co.edu.uniquindio.modelos.documentos.Negocio;
 import co.edu.uniquindio.modelos.documentos.Revision;
+import co.edu.uniquindio.modelos.enums.Estado;
 import co.edu.uniquindio.modelos.enums.EstadoNegocio;
 import co.edu.uniquindio.repositorio.RevisionRepo;
 import co.edu.uniquindio.servicios.interfaces.ModeradorServicio;
@@ -19,6 +21,10 @@ public class ModeradorImplementacion implements ModeradorServicio {
 
     @Autowired
     RevisionRepo revisionRepo;
+
+    @Autowired
+    NegocioImplementacion negocioImplementacion;
+
     @Override
     public void aceptarNegocio(RegistrarRevisionNegocioDTO registrarRevisionNegocioDTO) {
 
@@ -35,6 +41,8 @@ public class ModeradorImplementacion implements ModeradorServicio {
 
 
         Revision revisionGuardada = revisionRepo.save(revision);
+
+        negocioImplementacion.cambiarEstado(new CambioEstadoDTO(negocio.getCodigo(), Estado.ACTIVO));
 
     }
 
