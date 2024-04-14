@@ -3,7 +3,8 @@ package co.edu.uniquindio.modelos.enums;
 public enum Estado {
     SOLICITADO(0),
     ACTIVO(1),
-    INACTIVO(2);
+    INACTIVO(2),
+    RECHAZADO(3);
 
     private final int estado;
 

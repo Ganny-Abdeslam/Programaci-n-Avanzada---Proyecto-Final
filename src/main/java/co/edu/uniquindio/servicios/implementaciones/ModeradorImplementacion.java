@@ -62,5 +62,7 @@ public class ModeradorImplementacion implements ModeradorServicio {
         revision.setEstadoNegocio(EstadoNegocio.RECHAZADO.getNumEstado());
 
         Revision revisionGuardada = revisionRepo.save(revision);
+
+        negocioImplementacion.cambiarEstado(new CambioEstadoDTO(negocio.getCodigo(), Estado.RECHAZADO));
     }
 }
