@@ -10,8 +10,8 @@ public interface NegocioServicio {
     void crearNegocio(RegistrarNegocioDTO registrarNegocioDTO) throws Exception;
     void actualizarNegocio();
     void buscarNegocios();
-    void eliminarNegocio();
+    void eliminarNegocio(String codNegocio);
     List<Negocio> filtrarPorEstado(String estado);
-    void listarNegociosPropietario();
+    List<Negocio> listarNegociosPropietario(String cedula);
     void cambiarEstado(CambioEstadoDTO cambioEstadoDTO) ;
 }

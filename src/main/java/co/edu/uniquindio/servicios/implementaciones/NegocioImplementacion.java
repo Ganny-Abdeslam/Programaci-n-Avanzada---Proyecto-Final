@@ -65,20 +65,20 @@ public class NegocioImplementacion implements NegocioServicio {
     }
 
     @Override
-    public void eliminarNegocio() {
-
+    public void eliminarNegocio(String codNegocio) {
+        Negocio negocio = negocioRepo.findById(codNegocio).orElse(null);
+        negocio.setEstado(Estado.INACTIVO.getNumEstado());
+        negocioRepo.save(negocio);
     }
 
     @Override
     public List<Negocio> filtrarPorEstado(String estado) {
-
         return negocioRepo.findByEstado(estado);
-
     }
 
     @Override
-    public void listarNegociosPropietario() {
-
+    public List<Negocio> listarNegociosPropietario(String cedula) {
+        return negocioRepo.findByCedulaCliente(cedula);
     }
 
     @Override

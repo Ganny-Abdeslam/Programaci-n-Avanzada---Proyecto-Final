@@ -1,9 +1,11 @@
 package co.edu.uniquindio.implementaciones;
 
 import co.edu.uniquindio.dto.RegistrarNegocioDTO;
+import co.edu.uniquindio.modelos.documentos.Negocio;
 import co.edu.uniquindio.modelos.entidades.Horario;
 import co.edu.uniquindio.modelos.entidades.Ubicacion;
 import co.edu.uniquindio.servicios.implementaciones.NegocioImplementacion;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -39,5 +41,15 @@ public class NegocioImplementacionTest {
         );
 
         negocioImplementacion.crearNegocio(registrarNegocioDTO);
+    }
+
+    @Test
+    public void eliminarNegocioTest(){
+        negocioImplementacion.eliminarNegocio("661c0d040359df17bc0a9a59");
+    }
+
+    @Test
+    public void listarNegociosPropietarioTest(){
+        Assertions.assertEquals(1,negocioImplementacion.listarNegociosPropietario("111122224").toArray().length);
     }
 }
