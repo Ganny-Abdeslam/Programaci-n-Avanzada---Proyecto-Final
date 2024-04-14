@@ -1,5 +1,6 @@
 package co.edu.uniquindio.servicios.implementaciones;
 
+import co.edu.uniquindio.dto.CambioEstadoDTO;
 import co.edu.uniquindio.dto.RegistrarNegocioDTO;
 import co.edu.uniquindio.modelos.documentos.Cliente;
 import co.edu.uniquindio.modelos.documentos.Negocio;
@@ -11,6 +12,8 @@ import co.edu.uniquindio.servicios.interfaces.NegocioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @SpringBootApplication
 @Service
@@ -38,7 +41,7 @@ public class NegocioImplementacion implements NegocioServicio {
         negocio.setUbicacion(registrarNegocioDTO.ubicacion());
         negocio.setNombre(registrarNegocioDTO.nombre());
         negocio.setCodTipoNegocio(tipoNegocio);
-        negocio.setEstado(Estado.ACTIVO.getNumEstado());
+        negocio.setEstado(Estado.SOLICITADO.getNumEstado());
         negocio.setHorarios(registrarNegocioDTO.horarios());
         negocio.setDescripcion(registrarNegocioDTO.descripcion());
         negocio.setImagenes(registrarNegocioDTO.imagenes());
@@ -67,7 +70,9 @@ public class NegocioImplementacion implements NegocioServicio {
     }
 
     @Override
-    public void filtrarPorEstado() {
+    public List<Negocio> filtrarPorEstado(String estado) {
+
+        return negocioRepo.findByEstado(estado);
 
     }
 
@@ -77,7 +82,11 @@ public class NegocioImplementacion implements NegocioServicio {
     }
 
     @Override
-    public void cambiarEstado() {
+    public void cambiarEstado(CambioEstadoDTO cambioEstadoDTO) {
+        Negocio negocio = negocioRepo.findById(cambioEstadoDTO.id()).orElse(null);
 
+        negocio.setEstado(cambioEstadoDTO.estado().getNumEstado());
+
+        negocioRepo.save( negocio );
     }
 }
