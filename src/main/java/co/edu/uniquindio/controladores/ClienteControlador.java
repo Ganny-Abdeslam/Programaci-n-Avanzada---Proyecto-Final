@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/clientes")
+@CrossOrigin(origins = "http://localhost:8082")
 public class ClienteControlador {
 
     private final ClienteImplementacion clienteImplementacion;
@@ -30,6 +31,7 @@ public class ClienteControlador {
     }
 
     @DeleteMapping("/eliminar/{codigo}")
+    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<MensajeDTO<String>> eliminarCuenta(String codigo)throws Exception{
         clienteImplementacion.eliminarCuenta(codigo);
         return ResponseEntity.ok().body( new MensajeDTO<>(false, "Cliente eliminado correctamente"));
