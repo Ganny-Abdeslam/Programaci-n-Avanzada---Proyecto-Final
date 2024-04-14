@@ -1,7 +1,6 @@
 package co.edu.uniquindio.implementaciones;
 
 import co.edu.uniquindio.dto.RegistrarRevisionNegocioDTO;
-import co.edu.uniquindio.dto.RegistroRespuestaDTO;
 import co.edu.uniquindio.servicios.implementaciones.ModeradorImplementacion;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,7 @@ public class ModeradorImplementacionTest {
         LocalDate fecha = LocalDate.of(2000, 1, 1);
 
         RegistrarRevisionNegocioDTO registrarRevisionNegocioDTO = new RegistrarRevisionNegocioDTO(
-                "1234","45678","",fecha);
+                "1234","661c0fabd1eaaa54c9d6098e","",fecha);
 
         moderadorImplementacion.aceptarNegocio(registrarRevisionNegocioDTO);
     }
@@ -30,7 +29,7 @@ public class ModeradorImplementacionTest {
         LocalDate fecha = LocalDate.of(2000, 1, 1);
 
         RegistrarRevisionNegocioDTO registrarRevisionNegocioDTO = new RegistrarRevisionNegocioDTO(
-                "1234","45678","esta es un motivo del rechazo",fecha);
+                "1234","661c0fabd1eaaa54c9d6098e","esta es un motivo del rechazo",fecha);
 
         moderadorImplementacion.rechazarNegocio(registrarRevisionNegocioDTO);
     }
