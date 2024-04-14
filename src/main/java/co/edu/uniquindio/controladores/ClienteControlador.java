@@ -4,6 +4,7 @@ import co.edu.uniquindio.dto.EditarClienteDTO;
 import co.edu.uniquindio.dto.MensajeDTO;
 import co.edu.uniquindio.dto.RegistroClienteDTO;
 import co.edu.uniquindio.servicios.implementaciones.ClienteImplementacion;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,7 @@ public class ClienteControlador {
     }
 
     @PutMapping("/editar-perfil")
+    @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<MensajeDTO<String>> actualizarCliente(@Valid @RequestBody EditarClienteDTO editarClienteDTO)throws Exception{
         return ResponseEntity.ok().body( new MensajeDTO<>(false, clienteImplementacion.editarPerfil(editarClienteDTO)));
     }
