@@ -1,10 +1,7 @@
 package co.edu.uniquindio.modelos.documentos;
 
 import co.edu.uniquindio.modelos.entidades.Cuenta;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -14,6 +11,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @ToString
+@NoArgsConstructor
 public class Moderador extends Cuenta implements Serializable{
 
     @Id

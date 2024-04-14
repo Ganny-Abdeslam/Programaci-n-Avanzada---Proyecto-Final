@@ -1,4 +1,8 @@
 package co.edu.uniquindio.servicios.interfaces;
 
-public interface ModeradorServicio extends CuentaServicio {
+import co.edu.uniquindio.dto.RegistrarRevisionNegocioDTO;
+
+public interface ModeradorServicio {
+    void aceptarNegocio(RegistrarRevisionNegocioDTO registrarRevisionNegocioDTO);
+    void rechazarNegocio(RegistrarRevisionNegocioDTO registrarRevisionNegocioDTO);
 }

@@ -14,6 +14,7 @@ import java.time.LocalDate;
 @ToString
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class Revision {
 
     @Id
@@ -27,6 +28,6 @@ public class Revision {
     private Negocio codNegocio;
 
     private String descripcion;
-    private EstadoNegocio estadoNegocio;
+    private int estadoNegocio;
     private LocalDate fecha;
 }
