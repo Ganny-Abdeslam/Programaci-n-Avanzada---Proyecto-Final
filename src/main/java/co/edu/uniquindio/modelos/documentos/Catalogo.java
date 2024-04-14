@@ -5,28 +5,23 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.List;
 
-@Document("comentario")
+@Document("caatalogo")
 @Getter
 @Setter
-@NoArgsConstructor
 @ToString
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Comentario implements Serializable{
+public class Catalogo {
     @Id
     @EqualsAndHashCode.Include
     private String codigo;
 
     @DBRef
-    private Cliente cedulaCliente;
-
-    @DBRef
     private Negocio codNegocio;
 
-    private LocalDate fecha;
-    private int calificacion;
-    private String mensaje;
-    private String respuesta;
+    private List<String> fotos;
 }

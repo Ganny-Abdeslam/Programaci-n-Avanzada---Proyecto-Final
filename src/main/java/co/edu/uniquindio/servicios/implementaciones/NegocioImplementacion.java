@@ -1,7 +1,9 @@
 package co.edu.uniquindio.servicios.implementaciones;
 
 import co.edu.uniquindio.dto.RegistrarNegocioDTO;
+import co.edu.uniquindio.modelos.documentos.Cliente;
 import co.edu.uniquindio.modelos.documentos.Negocio;
+import co.edu.uniquindio.modelos.documentos.TipoNegocio;
 import co.edu.uniquindio.modelos.enums.Estado;
 import co.edu.uniquindio.repositorio.ClienteRepo;
 import co.edu.uniquindio.repositorio.NegocioRepo;
@@ -27,14 +29,20 @@ public class NegocioImplementacion implements NegocioServicio {
 
         Negocio negocio = new Negocio();
 
+        Cliente cliente = new Cliente();
+        TipoNegocio tipoNegocio = new TipoNegocio();
+
+        cliente.setCedula(registrarNegocioDTO.cedulaCliente());
+        tipoNegocio.setCodigo(registrarNegocioDTO.codTipoNegocio());
+
         negocio.setUbicacion(registrarNegocioDTO.ubicacion());
         negocio.setNombre(registrarNegocioDTO.nombre());
-        negocio.setCodTipoNegocio(registrarNegocioDTO.codTipoNegocio());
+        negocio.setCodTipoNegocio(tipoNegocio);
         negocio.setEstado(Estado.ACTIVO.getNumEstado());
         negocio.setHorarios(registrarNegocioDTO.horarios());
         negocio.setDescripcion(registrarNegocioDTO.descripcion());
         negocio.setImagenes(registrarNegocioDTO.imagenes());
-        negocio.setCedulaCliente(registrarNegocioDTO.cedulaCliente());
+        negocio.setCedulaCliente(cliente);
 
         negocioRepo.save(negocio);
     }
