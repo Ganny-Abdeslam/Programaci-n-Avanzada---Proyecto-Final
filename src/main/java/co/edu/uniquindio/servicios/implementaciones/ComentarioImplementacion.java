@@ -2,7 +2,9 @@ package co.edu.uniquindio.servicios.implementaciones;
 
 import co.edu.uniquindio.dto.RegistroComentarioDTO;
 import co.edu.uniquindio.dto.RegistroRespuestaDTO;
+import co.edu.uniquindio.modelos.documentos.Cliente;
 import co.edu.uniquindio.modelos.documentos.Comentario;
+import co.edu.uniquindio.modelos.documentos.Negocio;
 import co.edu.uniquindio.repositorio.ClienteRepo;
 import co.edu.uniquindio.repositorio.ComentarioRepo;
 import co.edu.uniquindio.repositorio.NegocioRepo;
@@ -39,10 +41,16 @@ public class ComentarioImplementacion implements ComentariosServicio {
 
         Comentario comentario = new Comentario();
 
+        Negocio negocio = new Negocio();
+        Cliente cliente = new Cliente();
+
+        negocio.setCodigo(registroComentarioDTO.codNegocio());
+        cliente.setCedula(registroComentarioDTO.cedulaCliente());
+
         comentario.setCalificacion(registroComentarioDTO.calificacion());
         comentario.setFecha(registroComentarioDTO.fecha());
-        comentario.setCedulaCliente(registroComentarioDTO.cedulaCliente());
-        comentario.setCodNegocio(registroComentarioDTO.codNegocio());
+        comentario.setCedulaCliente(cliente);
+        comentario.setCodNegocio(negocio);
         comentario.setMensaje(registroComentarioDTO.mensaje());
 
         Comentario nuevoComentario = comentarioRepo.save(comentario);
