@@ -23,7 +23,7 @@ public class ComentarioImplementacionTest {
         LocalDate fecha = LocalDate.of(2000, 1, 1);
 
         RegistroComentarioDTO registroComentarioDTO = new RegistroComentarioDTO(fecha,4,
-                "111122224","661333c59f5d583c903e7ba2","Esto es un comentario"
+                "1213444","661c0d040359df17bc0a9a59","Esto es un comentario"
         );
 
         Assertions.assertNotNull(comentarioImplementacion.crearComentario(registroComentarioDTO));
@@ -36,7 +36,7 @@ public class ComentarioImplementacionTest {
         LocalDate fecha = LocalDate.of(2000, 1, 1);
 
         RegistroRespuestaDTO registroRespuestaDTO = new RegistroRespuestaDTO(fecha,
-                "111122224","661333c59f5d583c903e7ba2","Esto es una respuesta","66135b7f23004d5639656b5d"
+                "1213444","661c0d040359df17bc0a9a59","Esto es una respuesta","661ca6a8fc4b015ead4fe03a"
         );
 
         comentarioImplementacion.responderComentario(registroRespuestaDTO);
@@ -45,6 +45,6 @@ public class ComentarioImplementacionTest {
 
     @Test
     public void listarComentariosNegocioTest(){
-        Assertions.assertEquals(4,comentarioImplementacion.listarComentariosNegocio("1").toArray().length);
+        Assertions.assertEquals(5,comentarioImplementacion.listarComentariosNegocio("661c0d040359df17bc0a9a59").toArray().length);
     }
 }

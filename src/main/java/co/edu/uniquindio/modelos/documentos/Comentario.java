@@ -25,8 +25,10 @@ public class Comentario implements Serializable{
     @DBRef
     private Negocio codNegocio;
 
+    @DBRef
+    private Comentario idRespuesta;
+
     private LocalDate fecha;
     private int calificacion;
     private String mensaje;
-    private String respuesta;
 }

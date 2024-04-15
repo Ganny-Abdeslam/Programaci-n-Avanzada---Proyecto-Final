@@ -1,5 +1,6 @@
 package co.edu.uniquindio.servicios.implementaciones;
 
+import co.edu.uniquindio.dto.EmailDTO;
 import co.edu.uniquindio.dto.RegistroComentarioDTO;
 import co.edu.uniquindio.dto.RegistroRespuestaDTO;
 import co.edu.uniquindio.modelos.documentos.Cliente;
@@ -28,8 +29,11 @@ public class ComentarioImplementacion implements ComentariosServicio {
     @Autowired
     private NegocioRepo negocioRepo;
 
+    @Autowired
+    private EmailImplementacion emailImplementacion;
+
     @Override
-    public String crearComentario(RegistroComentarioDTO registroComentarioDTO) throws Exception {
+    public Comentario crearComentario(RegistroComentarioDTO registroComentarioDTO) throws Exception {
 
         if ( !existeCedula(registroComentarioDTO.cedulaCliente()) ){
             throw new Exception("La cedula no existe");
@@ -39,6 +43,16 @@ public class ComentarioImplementacion implements ComentariosServicio {
             throw new Exception("El negocio no existe");
         }
 
+        Comentario comentario = crearComentarioLocal(registroComentarioDTO);
+
+        enviarCorreo(negocioRepo.findById(registroComentarioDTO.codNegocio()).orElse(null).getCedulaCliente(),
+                "Creo un comentario para su negocio: "+
+                        negocioRepo.findById(registroComentarioDTO.codNegocio()).orElse(null).getNombre(),
+                registroComentarioDTO.mensaje());
+        return comentario;
+    }
+
+    private Comentario crearComentarioLocal(RegistroComentarioDTO registroComentarioDTO){
         Comentario comentario = new Comentario();
 
         Negocio negocio = new Negocio();
@@ -53,11 +67,12 @@ public class ComentarioImplementacion implements ComentariosServicio {
         comentario.setCodNegocio(negocio);
         comentario.setMensaje(registroComentarioDTO.mensaje());
 
-        Comentario nuevoComentario = comentarioRepo.save(comentario);
-
-        return nuevoComentario.getCodigo();
+        return comentarioRepo.save(comentario);
     }
 
+    private void enviarCorreo(Cliente cliente, String asunto, String cuerpo) throws Exception {
+        emailImplementacion.enviarCorreo(new EmailDTO(asunto, cuerpo, cliente.getEmail()));
+    }
     @Override
     public List<Comentario> listarComentariosNegocio(String codNegocio) {
         List<Comentario> comentarioList = comentarioRepo.listaComentariosNegocio(codNegocio);
@@ -79,7 +94,7 @@ public class ComentarioImplementacion implements ComentariosServicio {
             throw new Exception("El comentario no existe");
         }
 
-        String idRespuesta = this.crearComentario(new RegistroComentarioDTO(
+        Comentario idRespuesta = this.crearComentarioLocal(new RegistroComentarioDTO(
                                                             registroRespuestaDTO.fecha(),
                                                             0,
                                                             registroRespuestaDTO.cedulaCliente(),
@@ -88,7 +103,12 @@ public class ComentarioImplementacion implements ComentariosServicio {
 
         Comentario comentarioOrigen = comentarioRepo.findById(registroRespuestaDTO.idComentarioOrigen()).orElse(null);
 
-        comentarioOrigen.setRespuesta(idRespuesta);
+        comentarioOrigen.setIdRespuesta(idRespuesta);
+
+        enviarCorreo(comentarioOrigen.getCedulaCliente(),
+                "Le enviaron una respuesta para su comentario, por el negocio: "+
+                        negocioRepo.findById(registroRespuestaDTO.codNegocio()).orElse(null).getNombre(),
+                registroRespuestaDTO.mensaje());
 
         comentarioRepo.save(comentarioOrigen);
     }

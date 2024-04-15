@@ -7,7 +7,7 @@ import co.edu.uniquindio.modelos.documentos.Comentario;
 import java.util.List;
 
 public interface ComentariosServicio {
-    String crearComentario(RegistroComentarioDTO registroComentarioDTO) throws Exception;
+    Comentario crearComentario(RegistroComentarioDTO registroComentarioDTO) throws Exception;
     List<Comentario> listarComentariosNegocio(String codNegocio);
     void responderComentario(RegistroRespuestaDTO registroRespuestaDTO) throws Exception;
 }
