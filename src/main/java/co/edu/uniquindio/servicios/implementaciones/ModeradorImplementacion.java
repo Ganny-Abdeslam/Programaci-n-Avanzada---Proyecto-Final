@@ -1,9 +1,6 @@
 package co.edu.uniquindio.servicios.implementaciones;
 
-import co.edu.uniquindio.dto.CambioEstadoDTO;
-import co.edu.uniquindio.dto.CambioPasswordDTO;
-import co.edu.uniquindio.dto.RegistrarRevisionNegocioDTO;
-import co.edu.uniquindio.dto.RegistroClienteDTO;
+import co.edu.uniquindio.dto.*;
 import co.edu.uniquindio.modelos.documentos.Moderador;
 import co.edu.uniquindio.modelos.documentos.Negocio;
 import co.edu.uniquindio.modelos.documentos.Revision;
@@ -11,19 +8,21 @@ import co.edu.uniquindio.modelos.enums.Estado;
 import co.edu.uniquindio.modelos.enums.EstadoNegocio;
 import co.edu.uniquindio.repositorio.RevisionRepo;
 import co.edu.uniquindio.servicios.interfaces.ModeradorServicio;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @SpringBootApplication
+@AllArgsConstructor
 public class ModeradorImplementacion implements ModeradorServicio {
 
-    @Autowired
-    RevisionRepo revisionRepo;
-
-    @Autowired
-    NegocioImplementacion negocioImplementacion;
+    final private RevisionRepo revisionRepo;
+    final private NegocioImplementacion negocioImplementacion;
+    final private RevisionImplementacion revisionImplementacion;
 
     @Override
     public void aceptarNegocio(RegistrarRevisionNegocioDTO registrarRevisionNegocioDTO) {
@@ -39,8 +38,7 @@ public class ModeradorImplementacion implements ModeradorServicio {
         revision.setFecha(registrarRevisionNegocioDTO.fecha());
         revision.setEstadoNegocio(EstadoNegocio.APROBADO.getNumEstado());
 
-
-        Revision revisionGuardada = revisionRepo.save(revision);
+        revisionRepo.save(revision);
 
         negocioImplementacion.cambiarEstado(new CambioEstadoDTO(negocio.getCodigo(), Estado.ACTIVO));
 
@@ -61,8 +59,33 @@ public class ModeradorImplementacion implements ModeradorServicio {
         revision.setDescripcion(registrarRevisionNegocioDTO.descripcion());
         revision.setEstadoNegocio(EstadoNegocio.RECHAZADO.getNumEstado());
 
-        Revision revisionGuardada = revisionRepo.save(revision);
+        revisionRepo.save(revision);
 
         negocioImplementacion.cambiarEstado(new CambioEstadoDTO(negocio.getCodigo(), Estado.RECHAZADO));
     }
+
+    @Override
+    public List<Negocio> listarNegociosRechazados(String codigo) {
+        List<Revision> revisiones = revisionImplementacion.listarPorEstado(new ListarRevisionesDTO(codigo, 3));
+        List<Negocio> negocios = new ArrayList<>();
+
+        for (Revision r: revisiones){
+            negocios.add(r.getCodNegocio());
+        }
+
+        return negocios;
+    }
+
+    @Override
+    public List<Negocio> listarNegociosAceptados(String codigo) {
+        List<Revision> revisiones = revisionImplementacion.listarPorEstado(new ListarRevisionesDTO(codigo, 1));
+        List<Negocio> negocios = new ArrayList<>();
+
+        for (Revision r: revisiones){
+            negocios.add(r.getCodNegocio());
+        }
+
+        return negocios;
+    }
+
 }

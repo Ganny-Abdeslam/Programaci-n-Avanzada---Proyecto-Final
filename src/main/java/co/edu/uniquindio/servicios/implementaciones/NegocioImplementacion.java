@@ -9,7 +9,7 @@ import co.edu.uniquindio.modelos.enums.Estado;
 import co.edu.uniquindio.repositorio.ClienteRepo;
 import co.edu.uniquindio.repositorio.NegocioRepo;
 import co.edu.uniquindio.servicios.interfaces.NegocioServicio;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Service;
 
@@ -17,11 +17,11 @@ import java.util.List;
 
 @SpringBootApplication
 @Service
+@AllArgsConstructor
 public class NegocioImplementacion implements NegocioServicio {
-    @Autowired
-    private NegocioRepo negocioRepo;
-    @Autowired
-    private ClienteRepo clienteRepo;
+
+    final private NegocioRepo negocioRepo;
+    final private ClienteRepo clienteRepo;
 
     @Override
     public void crearNegocio(RegistrarNegocioDTO registrarNegocioDTO) throws Exception {
@@ -67,6 +67,7 @@ public class NegocioImplementacion implements NegocioServicio {
     @Override
     public void eliminarNegocio(String codNegocio) {
         Negocio negocio = negocioRepo.findById(codNegocio).orElse(null);
+        assert negocio != null;
         negocio.setEstado(Estado.INACTIVO.getNumEstado());
         negocioRepo.save(negocio);
     }
@@ -85,6 +86,7 @@ public class NegocioImplementacion implements NegocioServicio {
     public void cambiarEstado(CambioEstadoDTO cambioEstadoDTO) {
         Negocio negocio = negocioRepo.findById(cambioEstadoDTO.id()).orElse(null);
 
+        assert negocio != null;
         negocio.setEstado(cambioEstadoDTO.estado().getNumEstado());
 
         negocioRepo.save( negocio );

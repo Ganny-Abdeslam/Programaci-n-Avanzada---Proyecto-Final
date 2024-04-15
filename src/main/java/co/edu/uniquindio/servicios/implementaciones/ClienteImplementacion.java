@@ -9,6 +9,7 @@ import co.edu.uniquindio.modelos.enums.Estado;
 import co.edu.uniquindio.repositorio.ClienteRepo;
 import co.edu.uniquindio.servicios.interfaces.ClienteServicio;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,11 +19,11 @@ import java.util.Optional;
 
 @SpringBootApplication
 @Service
+@RequiredArgsConstructor
 public class ClienteImplementacion implements ClienteServicio {
-    @Autowired
-    private ClienteRepo clienteRepo;
-    @Autowired
-    private EmailImplementacion emailImplementacion;
+
+    final private ClienteRepo clienteRepo;
+    final private EmailImplementacion emailImplementacion;
 
     @Override
     public String registrarse(RegistroClienteDTO registroClienteDTO) throws Exception {

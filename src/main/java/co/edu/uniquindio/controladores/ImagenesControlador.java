@@ -13,7 +13,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/imagenes")
 @RequiredArgsConstructor
-public class ImagenesController {
+public class ImagenesControlador {
     private final ImagenesImplementacion imagenesImplementacion;
 
     @PostMapping("/subir")

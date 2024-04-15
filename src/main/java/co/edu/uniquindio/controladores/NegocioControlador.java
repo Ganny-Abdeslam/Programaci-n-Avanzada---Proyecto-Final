@@ -15,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/api/negocios")
 @CrossOrigin(origins = "http://localhost:8082")
-public class NegocioController {
+public class NegocioControlador {
     private final NegocioImplementacion negocioImplementacion;
 
     @PostMapping("/crearNegocio")

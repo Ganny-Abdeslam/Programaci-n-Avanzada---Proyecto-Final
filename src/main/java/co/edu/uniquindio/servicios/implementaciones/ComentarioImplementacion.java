@@ -10,7 +10,7 @@ import co.edu.uniquindio.repositorio.ClienteRepo;
 import co.edu.uniquindio.repositorio.ComentarioRepo;
 import co.edu.uniquindio.repositorio.NegocioRepo;
 import co.edu.uniquindio.servicios.interfaces.ComentariosServicio;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Service;
 
@@ -18,19 +18,13 @@ import java.util.List;
 
 @SpringBootApplication
 @Service
+@RequiredArgsConstructor
 public class ComentarioImplementacion implements ComentariosServicio {
 
-    @Autowired
-    private ComentarioRepo comentarioRepo;
-
-    @Autowired
-    private ClienteRepo clienteRepo;
-
-    @Autowired
-    private NegocioRepo negocioRepo;
-
-    @Autowired
-    private EmailImplementacion emailImplementacion;
+    final private ComentarioRepo comentarioRepo;
+    final private ClienteRepo clienteRepo;
+    final private NegocioRepo negocioRepo;
+    final private EmailImplementacion emailImplementacion;
 
     @Override
     public Comentario crearComentario(RegistroComentarioDTO registroComentarioDTO) throws Exception {
