@@ -1,5 +1,6 @@
 package co.edu.uniquindio.servicios.implementaciones;
 
+import co.edu.uniquindio.dto.ActualizarNegocioDTO;
 import co.edu.uniquindio.dto.CambioEstadoDTO;
 import co.edu.uniquindio.dto.RegistrarNegocioDTO;
 import co.edu.uniquindio.modelos.documentos.Cliente;
@@ -54,9 +55,35 @@ public class NegocioImplementacion implements NegocioServicio {
         return clienteRepo.findById(cedula).isPresent();
     }
 
-    @Override
-    public void actualizarNegocio() {
+    private boolean existeNegocio( String codigo ){
+        return negocioRepo.findById(codigo).isPresent();
+    }
 
+    @Override
+    public void actualizarNegocio(ActualizarNegocioDTO actualizarNegocioDTO) throws Exception {
+
+        Negocio negocio = negocioRepo.findById(actualizarNegocioDTO.codigo()).orElse(null);
+
+        if (!existeCedula(actualizarNegocioDTO.cedulaCliente())){
+            throw new Exception("La cedula del cliente no se encuentra registrada");
+        }
+
+        if (!existeNegocio(actualizarNegocioDTO.codigo())){
+            throw new Exception("El negocio no existe no se encuentra registrada");
+        }
+
+        TipoNegocio tipoNegocio = new TipoNegocio();
+        tipoNegocio.setCodigo(actualizarNegocioDTO.codTipoNegocio());
+
+        negocio.setUbicacion(actualizarNegocioDTO.ubicacion());
+        negocio.setNombre(actualizarNegocioDTO.nombre());
+        negocio.setCodTipoNegocio(tipoNegocio);
+        negocio.setEstado(Estado.SOLICITADO.getNumEstado());
+        negocio.setHorarios(actualizarNegocioDTO.horarios());
+        negocio.setDescripcion(actualizarNegocioDTO.descripcion());
+        negocio.setImagenes(actualizarNegocioDTO.imagenes());
+
+        negocioRepo.save(negocio);
     }
 
     @Override
