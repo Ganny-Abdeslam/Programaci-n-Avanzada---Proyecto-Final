@@ -1,5 +1,6 @@
 package co.edu.uniquindio.modelos.documentos;
 
+import co.edu.uniquindio.modelos.entidades.ItemCatalogo;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -23,5 +24,5 @@ public class Catalogo {
     @DBRef
     private Negocio codNegocio;
 
-    private List<String> fotos;
+    private List<ItemCatalogo> items;
 }
