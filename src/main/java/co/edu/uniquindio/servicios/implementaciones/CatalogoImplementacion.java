@@ -19,7 +19,7 @@ public class CatalogoImplementacion implements CatalogoServicio {
     final private NegocioRepo negocioRepo;
 
     @Override
-    public void agregarItem(ItemCatalogoDTO itemCatalogoDTO) {
+    public void agregarItem(ItemCatalogoDTO itemCatalogoDTO) throws Exception {
         ItemCatalogo itemCatalogo = new ItemCatalogo();
 
         itemCatalogo.setNombreItem(itemCatalogoDTO.nombre());
@@ -27,15 +27,18 @@ public class CatalogoImplementacion implements CatalogoServicio {
         itemCatalogo.setDescripcion(itemCatalogoDTO.descripcion());
         itemCatalogo.setFoto(itemCatalogoDTO.foto());
 
-        Catalogo catalogo;
-        if(catalogoRepo.findById(itemCatalogoDTO.codNegocio()).isPresent()){
-            catalogo = catalogoRepo.findById(itemCatalogoDTO.codNegocio()).orElse(null);
-        }else{
+        Catalogo catalogo = catalogoRepo.findByCodNegocio(itemCatalogoDTO.codNegocio()).orElse(null);;
+        if(catalogo == null){
             catalogo = new Catalogo();
             catalogo.setCodNegocio(negocioRepo.findById(itemCatalogoDTO.codNegocio()).orElse(null));
         }
 
-        assert catalogo != null;
+        for (ItemCatalogo i: catalogo.getItems()){
+            if(i.getNombreItem().equals(itemCatalogoDTO.nombre())){
+                throw new Exception("Este nombre ya lo posee un item del Catalogo actual");
+            }
+        }
+
         catalogo.getItems().add(itemCatalogo);
 
         catalogoRepo.save(catalogo);
@@ -43,7 +46,7 @@ public class CatalogoImplementacion implements CatalogoServicio {
 
     @Override
     public void eliminarItem(EliminarItemDTO eliminarItemDTO) {
-        Catalogo catalogo = catalogoRepo.findById(eliminarItemDTO.codNegocio()).orElse(null);
+        Catalogo catalogo = catalogoRepo.findById(eliminarItemDTO.codCatalogo()).orElse(null);
 
         assert catalogo != null;
         catalogo.getItems().removeIf(i -> i.getNombreItem().equals(eliminarItemDTO.nombre()));
@@ -53,6 +56,6 @@ public class CatalogoImplementacion implements CatalogoServicio {
 
     @Override
     public Catalogo traerCatalgo(String codNegocio) {
-        return catalogoRepo.findById(codNegocio).orElse(null);
+        return catalogoRepo.findByCodNegocio(codNegocio).orElse(null);
     }
 }

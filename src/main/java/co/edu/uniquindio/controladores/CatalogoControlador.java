@@ -19,7 +19,7 @@ public class CatalogoControlador {
     private final CatalogoImplementacion catalogoImplementacion;
 
     @PostMapping("/agregarItem")
-    public ResponseEntity<MensajeDTO<String>> agregarItem(@Valid @RequestBody ItemCatalogoDTO itemCatalogoDTO){
+    public ResponseEntity<MensajeDTO<String>> agregarItem(@Valid @RequestBody ItemCatalogoDTO itemCatalogoDTO) throws Exception {
         catalogoImplementacion.agregarItem(itemCatalogoDTO);
         return ResponseEntity.ok().body( new MensajeDTO<>(false, "Se agrego un item al catalogo"));
     }

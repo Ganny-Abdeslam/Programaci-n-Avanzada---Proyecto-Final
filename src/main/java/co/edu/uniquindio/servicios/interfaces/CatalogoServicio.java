@@ -7,7 +7,7 @@ import co.edu.uniquindio.modelos.documentos.Catalogo;
 import java.util.List;
 
 public interface CatalogoServicio {
-    void agregarItem(ItemCatalogoDTO itemCatalogoDTO);
+    void agregarItem(ItemCatalogoDTO itemCatalogoDTO) throws Exception;
 
     void eliminarItem(EliminarItemDTO eliminarItemDTO);
 
