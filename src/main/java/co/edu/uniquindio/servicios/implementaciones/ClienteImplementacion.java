@@ -89,6 +89,11 @@ public class ClienteImplementacion implements ClienteServicio {
     }
 
     @Override
+    public Cliente verDatos(String cedula) {
+        return clienteRepo.findById(cedula).orElse(null);
+    }
+
+    @Override
     public void eliminarCuenta(String idCuenta) throws Exception {
         if(!existeCedula(idCuenta)){
             throw new Exception("No existe la cuenta que desea eliminar");

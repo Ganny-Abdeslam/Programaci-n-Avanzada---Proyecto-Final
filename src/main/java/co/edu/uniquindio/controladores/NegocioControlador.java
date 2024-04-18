@@ -44,4 +44,9 @@ public class NegocioControlador {
         negocioImplementacion.eliminarNegocio(codigo);
         return ResponseEntity.ok().body( new MensajeDTO<>(false, "El negocio se a eliminado"));
     }
+
+    @GetMapping("/traerNegocio/{codNegocio}")
+    public ResponseEntity<MensajeDTO<Negocio>> traerNegocio(String codNegocio) throws Exception {
+        return ResponseEntity.ok().body( new MensajeDTO<>(false, negocioImplementacion.traerNegocio(codNegocio)));
+    }
 }

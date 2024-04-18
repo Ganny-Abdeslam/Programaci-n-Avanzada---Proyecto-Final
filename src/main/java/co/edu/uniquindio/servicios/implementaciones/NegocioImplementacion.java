@@ -110,12 +110,23 @@ public class NegocioImplementacion implements NegocioServicio {
     }
 
     @Override
-    public void cambiarEstado(CambioEstadoDTO cambioEstadoDTO) {
+    public void cambiarEstado(CambioEstadoDTO cambioEstadoDTO) throws Exception {
         Negocio negocio = negocioRepo.findById(cambioEstadoDTO.id()).orElse(null);
 
-        assert negocio != null;
+        if (negocio == null){
+            throw new Exception("No existe el negocio");
+        }
         negocio.setEstado(cambioEstadoDTO.estado().getNumEstado());
 
         negocioRepo.save( negocio );
+    }
+
+    @Override
+    public Negocio traerNegocio(String codNegocio) throws Exception {
+        Negocio negocio = negocioRepo.findById(codNegocio).orElse(null);
+        if (negocio == null){
+            throw new Exception("No existe el negocio");
+        }
+        return negocio;
     }
 }

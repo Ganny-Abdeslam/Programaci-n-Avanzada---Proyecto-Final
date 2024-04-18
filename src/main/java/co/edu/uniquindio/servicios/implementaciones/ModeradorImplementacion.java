@@ -25,7 +25,7 @@ public class ModeradorImplementacion implements ModeradorServicio {
     final private RevisionImplementacion revisionImplementacion;
 
     @Override
-    public void aceptarNegocio(RegistrarRevisionNegocioDTO registrarRevisionNegocioDTO) {
+    public void aceptarNegocio(RegistrarRevisionNegocioDTO registrarRevisionNegocioDTO) throws Exception {
 
         Moderador moderador = new Moderador();
         moderador.setCodigo(registrarRevisionNegocioDTO.codModerador());
@@ -45,7 +45,7 @@ public class ModeradorImplementacion implements ModeradorServicio {
     }
 
     @Override
-    public void rechazarNegocio(RegistrarRevisionNegocioDTO registrarRevisionNegocioDTO) {
+    public void rechazarNegocio(RegistrarRevisionNegocioDTO registrarRevisionNegocioDTO) throws Exception {
 
         Moderador moderador = new Moderador();
         moderador.setCodigo(registrarRevisionNegocioDTO.codModerador());
