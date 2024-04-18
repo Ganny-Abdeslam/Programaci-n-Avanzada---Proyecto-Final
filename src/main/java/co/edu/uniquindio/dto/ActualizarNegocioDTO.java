@@ -14,7 +14,6 @@ public record ActualizarNegocioDTO(
         List<Horario> horarios,
         @NotBlank String codTipoNegocio,
         List<String> imagenes,
-        String cedulaCliente,
-        String tokeen
+        String cedulaCliente
 ) {
 }

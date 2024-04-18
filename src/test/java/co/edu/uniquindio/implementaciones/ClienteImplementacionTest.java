@@ -31,7 +31,7 @@ public class ClienteImplementacionTest{
     @Test
     public void editarPerfil() throws Exception {
 
-        EditarClienteDTO editarClienteDTO = new EditarClienteDTO("111122224", "pepito", "tokenJWT", "", "");
+        EditarClienteDTO editarClienteDTO = new EditarClienteDTO("111122224", "pepito", "tokenJWT", "");
 
         Assertions.assertNotNull(clienteImplementacion.editarPerfil(editarClienteDTO));
     }
