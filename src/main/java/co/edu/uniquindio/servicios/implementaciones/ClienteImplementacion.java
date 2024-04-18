@@ -1,9 +1,6 @@
 package co.edu.uniquindio.servicios.implementaciones;
 
-import co.edu.uniquindio.dto.CambioPasswordDTO;
-import co.edu.uniquindio.dto.EditarClienteDTO;
-import co.edu.uniquindio.dto.EmailDTO;
-import co.edu.uniquindio.dto.RegistroClienteDTO;
+import co.edu.uniquindio.dto.*;
 import co.edu.uniquindio.modelos.documentos.Cliente;
 import co.edu.uniquindio.modelos.enums.Estado;
 import co.edu.uniquindio.repositorio.ClienteRepo;
@@ -24,6 +21,7 @@ public class ClienteImplementacion implements ClienteServicio {
 
     final private ClienteRepo clienteRepo;
     final private EmailImplementacion emailImplementacion;
+    final private AutenticacionImplementacion autenticacionImplementacion;
 
     @Override
     public String registrarse(RegistroClienteDTO registroClienteDTO) throws Exception {
@@ -91,11 +89,6 @@ public class ClienteImplementacion implements ClienteServicio {
     }
 
     @Override
-    public void iniciarSeccion(RegistroClienteDTO registroClienteDTO) throws Exception {
-
-    }
-
-    @Override
     public void eliminarCuenta(String idCuenta) throws Exception {
         if(!existeCedula(idCuenta)){
             throw new Exception("No existe la cuenta que desea eliminar");
@@ -112,11 +105,30 @@ public class ClienteImplementacion implements ClienteServicio {
             throw new Exception("El correo no se encuentra registrado");
         }
 
-        emailImplementacion.enviarCorreo(new EmailDTO("Asunto", "Cuerpo mensaje", email));
+        TokenDTO tokenDTO = autenticacionImplementacion.cambioPassword(cliente.get());
+
+        String url = "URL/"+tokenDTO.token();
+
+        emailImplementacion.enviarCorreo(new EmailDTO("Recuperación contraseña UniLocal",
+                "Ingrese al siguiente link para su cambio de contraseña: "+url, email));
     }
 
     @Override
     public void cambiarPassword(CambioPasswordDTO cambioPasswordDTO) throws Exception {
+        Cliente cliente = clienteRepo.findById(cambioPasswordDTO.codCliente()).orElse(null);
 
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        if( !passwordEncoder.matches(cambioPasswordDTO.password(), cliente.getPassword()) ) {
+            throw new Exception("La contraseña es incorrecta");
+        }
+
+        if( !cambioPasswordDTO.passwordNew().equals(cambioPasswordDTO.passwordConfr()) ){
+            throw new Exception("Las contraseñas no son iguales");
+        }
+
+        String passwordEncriptada = passwordEncoder.encode( cambioPasswordDTO.password() );
+        cliente.setPassword( passwordEncriptada );
+
+        clienteRepo.save( cliente );
     }
 }

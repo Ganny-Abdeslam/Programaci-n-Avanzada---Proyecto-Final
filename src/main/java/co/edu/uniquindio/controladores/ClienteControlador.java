@@ -1,5 +1,6 @@
 package co.edu.uniquindio.controladores;
 
+import co.edu.uniquindio.dto.CambioPasswordDTO;
 import co.edu.uniquindio.dto.EditarClienteDTO;
 import co.edu.uniquindio.dto.MensajeDTO;
 import co.edu.uniquindio.dto.RegistroClienteDTO;
@@ -35,5 +36,18 @@ public class ClienteControlador {
     public ResponseEntity<MensajeDTO<String>> eliminarCuenta(String codigo)throws Exception{
         clienteImplementacion.eliminarCuenta(codigo);
         return ResponseEntity.ok().body( new MensajeDTO<>(false, "Cliente eliminado correctamente"));
+    }
+
+    @GetMapping("/recuperarCuenta/{email}")
+    public ResponseEntity<MensajeDTO<String>> recuperarCuenta(String email)throws Exception{
+        clienteImplementacion.enviarLinkRecuperacion(email);
+        return ResponseEntity.ok().body( new MensajeDTO<>(false, "Se envio un link de recuperación a su correo."));
+    }
+
+    @PutMapping("/cambiarPassword")
+    @SecurityRequirement(name = "bearerAuth")
+    public ResponseEntity<MensajeDTO<String>> cambiarPassword(CambioPasswordDTO cambioPasswordDTO)throws Exception{
+        clienteImplementacion.cambiarPassword(cambioPasswordDTO);
+        return ResponseEntity.ok().body( new MensajeDTO<>(false, "Se cambio correctamente la contraseña"));
     }
 }

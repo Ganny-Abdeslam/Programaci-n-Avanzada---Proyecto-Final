@@ -4,6 +4,7 @@ import co.edu.uniquindio.dto.MensajeDTO;
 import co.edu.uniquindio.dto.RegistrarRevisionNegocioDTO;
 import co.edu.uniquindio.modelos.documentos.Negocio;
 import co.edu.uniquindio.servicios.implementaciones.ModeradorImplementacion;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/api/moderador")
 @CrossOrigin(origins = "http://localhost:8082")
+@SecurityRequirement(name = "bearerAuth")
 public class ModeradorControlador {
     final private ModeradorImplementacion moderadorImplementacion;
 

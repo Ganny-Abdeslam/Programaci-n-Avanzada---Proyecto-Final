@@ -3,6 +3,7 @@ package co.edu.uniquindio.controladores;
 import co.edu.uniquindio.dto.ImagenDTO;
 import co.edu.uniquindio.dto.MensajeDTO;
 import co.edu.uniquindio.servicios.implementaciones.ImagenesImplementacion;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/imagenes")
 @RequiredArgsConstructor
+@SecurityRequirement(name = "bearerAuth")
 public class ImagenesControlador {
     private final ImagenesImplementacion imagenesImplementacion;
 

@@ -58,4 +58,13 @@ public class AutenticacionImplementacion implements AutenticacionServicio {
         map.put("id", moderador.getCodigo());
         return new TokenDTO( jwtUtils.generarToken(moderador.getEmail(), map) );
     }
+
+    @Override
+    public TokenDTO cambioPassword(Cliente cliente) throws Exception {
+        Map<String, Object> map = new HashMap<>();
+        map.put("rol", "CLIENTE");
+        map.put("nombre", cliente.getNombre());
+        map.put("id", cliente.getCodigo());
+        return new TokenDTO( jwtUtils.generarToken(cliente.getEmail(), map) );
+    }
 }
