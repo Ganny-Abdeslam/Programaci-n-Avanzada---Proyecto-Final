@@ -6,6 +6,7 @@ import co.edu.uniquindio.dto.RegistrarNegocioDTO;
 import co.edu.uniquindio.modelos.documentos.Cliente;
 import co.edu.uniquindio.modelos.documentos.Negocio;
 import co.edu.uniquindio.modelos.documentos.TipoNegocio;
+import co.edu.uniquindio.modelos.entidades.Horario;
 import co.edu.uniquindio.modelos.enums.Estado;
 import co.edu.uniquindio.repositorio.ClienteRepo;
 import co.edu.uniquindio.repositorio.NegocioRepo;
@@ -84,6 +85,10 @@ public class NegocioImplementacion implements NegocioServicio {
         negocio.setImagenes(actualizarNegocioDTO.imagenes());
 
         negocioRepo.save(negocio);
+    }
+
+    public List<Horario> editarHorario(List<Horario> horarios){
+        return horarios;
     }
 
     @Override

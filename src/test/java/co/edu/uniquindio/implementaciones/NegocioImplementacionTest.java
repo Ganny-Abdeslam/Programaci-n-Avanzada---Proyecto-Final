@@ -1,5 +1,6 @@
 package co.edu.uniquindio.implementaciones;
 
+import co.edu.uniquindio.dto.ActualizarNegocioDTO;
 import co.edu.uniquindio.dto.RegistrarNegocioDTO;
 import co.edu.uniquindio.modelos.entidades.Horario;
 import co.edu.uniquindio.modelos.entidades.Ubicacion;
@@ -40,6 +41,31 @@ public class NegocioImplementacionTest {
         );
 
         negocioImplementacion.crearNegocio(registrarNegocioDTO);
+    }
+
+    @Test
+    public void actualizarNegocioTest() throws Exception {
+        List<Horario> horarios = new ArrayList<>();
+
+        // Agregar horarios
+        horarios.add(new Horario("Lunes", LocalTime.of(9, 0), LocalTime.of(12, 0)));
+        //horarios.add(new Horario("Martes", LocalTime.of(10, 0), LocalTime.of(13, 0)));
+        horarios.add(new Horario("Miércoles", LocalTime.of(8, 30), LocalTime.of(11, 30)));
+        //horarios.add(new Horario("Jueves", LocalTime.of(11, 0), LocalTime.of(14, 0)));
+        horarios.add(new Horario("Viernes", LocalTime.of(9, 30), LocalTime.of(12, 30)));
+
+        ActualizarNegocioDTO actualizarNegocioDTO = new ActualizarNegocioDTO(
+                "661c0fabd1eaaa54c9d6098e",
+                new Ubicacion(1.2, 2.5),
+                "Negocio-Prueba",
+                "Este es un negocio de prueba",
+                horarios,
+                "1",
+                new ArrayList<>(),
+                "111122224"
+        );
+
+        negocioImplementacion.actualizarNegocio(actualizarNegocioDTO);
     }
 
     @Test
