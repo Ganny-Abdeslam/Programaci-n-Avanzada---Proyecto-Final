@@ -11,6 +11,8 @@ import java.time.LocalDate;
 @Document("comentario")
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
