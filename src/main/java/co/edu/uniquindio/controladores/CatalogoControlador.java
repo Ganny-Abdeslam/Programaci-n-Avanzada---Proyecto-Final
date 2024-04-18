@@ -1,5 +1,6 @@
 package co.edu.uniquindio.controladores;
 
+import co.edu.uniquindio.dto.EditarItemDTO;
 import co.edu.uniquindio.dto.EliminarItemDTO;
 import co.edu.uniquindio.dto.ItemCatalogoDTO;
 import co.edu.uniquindio.dto.MensajeDTO;
@@ -33,5 +34,11 @@ public class CatalogoControlador {
     @GetMapping("/listaCatalogo/{codNegocio}")
     public ResponseEntity<MensajeDTO<Catalogo>> listaItems(String codNegocio){
         return ResponseEntity.ok().body( new MensajeDTO<>(false, catalogoImplementacion.traerCatalgo(codNegocio)) );
+    }
+
+    @PutMapping("/editarItem")
+    public ResponseEntity<MensajeDTO<String>>editarItem(EditarItemDTO editarItemDTO) throws Exception {
+        catalogoImplementacion.editarItem(editarItemDTO);
+        return ResponseEntity.ok().body( new MensajeDTO<>(false, "Se actualizo el item"));
     }
 }

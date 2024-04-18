@@ -1,5 +1,6 @@
 package co.edu.uniquindio.servicios.implementaciones;
 
+import co.edu.uniquindio.dto.EditarItemDTO;
 import co.edu.uniquindio.dto.EliminarItemDTO;
 import co.edu.uniquindio.dto.ItemCatalogoDTO;
 import co.edu.uniquindio.modelos.documentos.Catalogo;
@@ -57,5 +58,25 @@ public class CatalogoImplementacion implements CatalogoServicio {
     @Override
     public Catalogo traerCatalgo(String codNegocio) {
         return catalogoRepo.findByCodNegocio(codNegocio).orElse(null);
+    }
+
+    @Override
+    public void editarItem(EditarItemDTO editarItemDTO) throws Exception {
+        Catalogo catalogo = catalogoRepo.findById(editarItemDTO.codCatalogo()).orElse(null);
+
+        assert catalogo != null;
+        for (ItemCatalogo i: catalogo.getItems()){
+            if(i.getNombreItem().equals(editarItemDTO.nombre())){
+                i.setPrecio(editarItemDTO.precio());
+                i.setDescripcion(editarItemDTO.descripcion());
+                i.setFoto(editarItemDTO.foto());
+
+                catalogo.getItems().set(catalogo.getItems().indexOf(i), i);
+                catalogoRepo.save( catalogo );
+                return;
+            }
+        }
+
+        throw new Exception("No existe el producto que desea editar");
     }
 }
