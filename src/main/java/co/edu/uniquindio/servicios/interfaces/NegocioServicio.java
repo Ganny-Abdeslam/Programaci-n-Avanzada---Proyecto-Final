@@ -14,5 +14,6 @@ public interface NegocioServicio {
     void eliminarNegocio(String codNegocio);
     List<Negocio> filtrarPorEstado(int estado);
     List<Negocio> listarNegociosPropietario(String cedula);
-    void cambiarEstado(CambioEstadoDTO cambioEstadoDTO) ;
+    void cambiarEstado(CambioEstadoDTO cambioEstadoDTO) throws Exception;
+    Negocio traerNegocio(String codNegocio) throws Exception;
 }
