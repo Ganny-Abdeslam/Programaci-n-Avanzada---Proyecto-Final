@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TipoNegocioRepo extends MongoRepository<TipoNegocio, String> {
+    TipoNegocio findByNombre(String nombre);
 }

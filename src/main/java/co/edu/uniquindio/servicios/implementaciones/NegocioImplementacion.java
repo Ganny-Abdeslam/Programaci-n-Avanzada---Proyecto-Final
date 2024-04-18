@@ -1,19 +1,21 @@
 package co.edu.uniquindio.servicios.implementaciones;
 
-import co.edu.uniquindio.dto.ActualizarNegocioDTO;
-import co.edu.uniquindio.dto.CambioEstadoDTO;
-import co.edu.uniquindio.dto.RegistrarNegocioDTO;
+import co.edu.uniquindio.dto.*;
 import co.edu.uniquindio.modelos.documentos.Cliente;
 import co.edu.uniquindio.modelos.documentos.Negocio;
 import co.edu.uniquindio.modelos.documentos.TipoNegocio;
 import co.edu.uniquindio.modelos.enums.Estado;
 import co.edu.uniquindio.repositorio.ClienteRepo;
 import co.edu.uniquindio.repositorio.NegocioRepo;
+import co.edu.uniquindio.repositorio.TipoNegocioRepo;
 import co.edu.uniquindio.servicios.interfaces.NegocioServicio;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
@@ -23,6 +25,7 @@ public class NegocioImplementacion implements NegocioServicio {
 
     final private NegocioRepo negocioRepo;
     final private ClienteRepo clienteRepo;
+    final private TipoNegocioRepo tipoNegocioRepo;
 
     @Override
     public void crearNegocio(RegistrarNegocioDTO registrarNegocioDTO) throws Exception {
@@ -92,6 +95,37 @@ public class NegocioImplementacion implements NegocioServicio {
     }
 
     @Override
+    public List<Negocio> negocioNombre(FiltroNombreDTO filtroNombreDTO) {
+        boolean esMayorDeEdad = comprobarEdad(filtroNombreDTO.cedula());
+
+        if(esMayorDeEdad){
+            return negocioRepo.findByNombreRegex(filtroNombreDTO.nombre());
+        }
+
+        List<Negocio> negocios = negocioRepo.findByNombreRegex(filtroNombreDTO.nombre());
+        List<Negocio> negocioList = new ArrayList<>();
+        for (Negocio n: negocios){
+            if (n.getCodTipoNegocio().getRestriccion() == 0){
+                negocioList.add(n);
+            }
+        }
+        return  negocioList;
+    }
+
+    @Override
+    public List<Negocio> negociosTipo(FiltroTipoDTO filtroTipoDTO) {
+        boolean esMayorDeEdad = comprobarEdad(filtroTipoDTO.cedula());
+
+        TipoNegocio tipoNegocio = tipoNegocioRepo.findByNombre(filtroTipoDTO.tipo());
+
+        if(!esMayorDeEdad && tipoNegocio.getRestriccion() == 1){
+            return null;
+        }
+
+        return negocioRepo.findByCodTipoNegocio(filtroTipoDTO.tipo());
+    }
+
+    @Override
     public void eliminarNegocio(String codNegocio) {
         Negocio negocio = negocioRepo.findById(codNegocio).orElse(null);
         assert negocio != null;
@@ -128,5 +162,19 @@ public class NegocioImplementacion implements NegocioServicio {
             throw new Exception("No existe el negocio");
         }
         return negocio;
+    }
+
+    private boolean comprobarEdad(String cedula){
+        boolean esMayorDeEdad = false;
+
+        if(!cedula.equals("0")){
+            Cliente cliente = clienteRepo.findById(cedula).orElse(null);
+
+            LocalDate fechaActual = LocalDate.now();
+            int edad = Period.between(cliente.getFechaNacimiento(), fechaActual).getYears();
+            esMayorDeEdad = edad >= 18;
+        }
+
+        return esMayorDeEdad;
     }
 }
