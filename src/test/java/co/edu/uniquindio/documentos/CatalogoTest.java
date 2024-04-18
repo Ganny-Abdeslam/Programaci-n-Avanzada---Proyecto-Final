@@ -23,7 +23,7 @@ public class CatalogoTest {
     @Test
     public void registrarCatalogo() {
 
-        Negocio negocio = negocioRepo.findById("661c0fabd1eaaa54c9d6098e").orElse(null);
+        Negocio negocio = negocioRepo.findById("123456789").orElse(null);
 
         Catalogo catalogo = new Catalogo("12345",negocio, new ArrayList<>());
 

@@ -29,7 +29,7 @@ public class CometarioTest {
 
         Cliente cliente = clienteRepo.findById("1213444").orElse(null);
 
-        Negocio negocio = negocioRepo.findById("661c0fabd1eaaa54c9d6098e").orElse(null);
+        Negocio negocio = negocioRepo.findById("123456789").orElse(null);
 
         LocalDate fecha = LocalDate.of(2000, 1, 1);
 
@@ -49,7 +49,7 @@ public class CometarioTest {
 
     @Test
     public void consultarComentarioTest(){
-        Comentario comentario = comentarioRepo.findById("12345").orElse(null);
+        Comentario comentario = comentarioRepo.findById("465789").orElse(null);
 
         Assertions.assertNotNull(comentario);
     }
