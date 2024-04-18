@@ -17,6 +17,6 @@ public class TipoNegocio {
     @EqualsAndHashCode.Include
     private String codigo;
 
-    private String valor;
-    private int restriccion;
+    private String nombre;
+    private int restriccion; //0 - sin restricción, 1 con restricción
 }

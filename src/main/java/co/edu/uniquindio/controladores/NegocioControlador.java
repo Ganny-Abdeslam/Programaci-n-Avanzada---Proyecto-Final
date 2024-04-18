@@ -1,5 +1,7 @@
 package co.edu.uniquindio.controladores;
 
+import co.edu.uniquindio.dto.FiltroNombreDTO;
+import co.edu.uniquindio.dto.FiltroTipoDTO;
 import co.edu.uniquindio.dto.MensajeDTO;
 import co.edu.uniquindio.dto.RegistrarNegocioDTO;
 import co.edu.uniquindio.modelos.documentos.Negocio;
@@ -30,6 +32,16 @@ public class NegocioControlador {
     @SecurityRequirement(name = "bearerAuth")
     public ResponseEntity<MensajeDTO<List<Negocio>>> filtrarPorEstado(int estado){
         return ResponseEntity.ok().body( new MensajeDTO<>(false, negocioImplementacion.filtrarPorEstado(estado)));
+    }
+
+    @GetMapping("/filtroTipo")
+    public ResponseEntity<MensajeDTO<List<Negocio>>> filtrarPorTipo(FiltroTipoDTO filtroTipoDTO){
+        return ResponseEntity.ok().body( new MensajeDTO<>(false, negocioImplementacion.negociosTipo(filtroTipoDTO)));
+    }
+
+    @GetMapping("/filtroNombre")
+    public ResponseEntity<MensajeDTO<List<Negocio>>> filtrarPorNombre(FiltroNombreDTO filtroNombreDTO){
+        return ResponseEntity.ok().body( new MensajeDTO<>(false, negocioImplementacion.negocioNombre(filtroNombreDTO)));
     }
 
     @GetMapping("/listarNegociosPropiedad/{cedula}")

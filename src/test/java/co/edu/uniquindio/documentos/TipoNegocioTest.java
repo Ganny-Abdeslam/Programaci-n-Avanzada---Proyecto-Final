@@ -17,7 +17,7 @@ public class TipoNegocioTest {
 
         TipoNegocio tipoNegocio = TipoNegocio.builder()
                 .codigo("12345")
-                .valor("0")
+                .nombre("0")
                 .restriccion(0).build();
 
         TipoNegocio registro = tipoNegocioRepo.save( tipoNegocio );
