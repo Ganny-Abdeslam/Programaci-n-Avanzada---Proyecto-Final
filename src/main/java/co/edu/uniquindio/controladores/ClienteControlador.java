@@ -52,7 +52,7 @@ public class ClienteControlador {
 
     @PutMapping("/cambiarPassword")
     @SecurityRequirement(name = "bearerAuth")
-    public ResponseEntity<MensajeDTO<String>> cambiarPassword(CambioPasswordDTO cambioPasswordDTO)throws Exception{
+    public ResponseEntity<MensajeDTO<String>> cambiarPassword(@Valid @RequestBody CambioPasswordDTO cambioPasswordDTO)throws Exception{
         clienteImplementacion.cambiarPassword(cambioPasswordDTO);
         return ResponseEntity.ok().body( new MensajeDTO<>(false, "Se cambio correctamente la contraseña"));
     }

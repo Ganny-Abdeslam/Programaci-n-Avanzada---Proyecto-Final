@@ -6,6 +6,7 @@ import co.edu.uniquindio.modelos.documentos.Negocio;
 import co.edu.uniquindio.modelos.documentos.TipoNegocio;
 import co.edu.uniquindio.servicios.implementaciones.TipoNegocioImplementacion;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,7 +27,7 @@ public class TipoNegocioControlador {
     }
 
     @PostMapping("/agregarTipo")
-    public ResponseEntity<MensajeDTO<String>> agregarTipo(TipoNegocioDTO tipoNegocioDTO){
+    public ResponseEntity<MensajeDTO<String>> agregarTipo(@Valid @RequestBody TipoNegocioDTO tipoNegocioDTO){
         tipoNegocioImplementacion.agregarTipo(tipoNegocioDTO);
         return ResponseEntity.ok().body( new MensajeDTO<>(false, "Se agregp el tipo"));
     }

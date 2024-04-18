@@ -8,7 +8,7 @@ import java.util.List;
 public interface NegocioServicio {
     void crearNegocio(RegistrarNegocioDTO registrarNegocioDTO) throws Exception;
     void actualizarNegocio(ActualizarNegocioDTO actualizarNegocioDTO) throws Exception;
-    void buscarNegocios();
+    List<Negocio> listarNegocios(String cedula);
     List<Negocio> negocioNombre(FiltroNombreDTO filtroNombreDTO);
     List<Negocio> negociosTipo(FiltroTipoDTO filtroTipoDTO);
     void eliminarNegocio(String codNegocio);

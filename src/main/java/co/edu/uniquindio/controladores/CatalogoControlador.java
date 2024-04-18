@@ -41,7 +41,7 @@ public class CatalogoControlador {
 
     @PutMapping("/editarItem")
     @SecurityRequirement(name = "bearerAuth")
-    public ResponseEntity<MensajeDTO<String>>editarItem(EditarItemDTO editarItemDTO) throws Exception {
+    public ResponseEntity<MensajeDTO<String>>editarItem(@Valid @RequestBody EditarItemDTO editarItemDTO) throws Exception {
         catalogoImplementacion.editarItem(editarItemDTO);
         return ResponseEntity.ok().body( new MensajeDTO<>(false, "Se actualizo el item"));
     }

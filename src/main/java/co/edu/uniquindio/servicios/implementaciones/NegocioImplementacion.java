@@ -90,8 +90,19 @@ public class NegocioImplementacion implements NegocioServicio {
     }
 
     @Override
-    public void buscarNegocios() {
+    public List<Negocio> listarNegocios(String cedula) {
+        List<Negocio> negocios = filtrarPorEstado(1);
+        if (comprobarEdad(cedula)) {
+            return negocios;
+        }
 
+        List<Negocio> negocioList = new ArrayList<>();
+        for (Negocio n: negocios){
+            if (n.getCodTipoNegocio().getRestriccion() == 0){
+                negocioList.add(n);
+            }
+        }
+        return  negocioList;
     }
 
     @Override
@@ -99,10 +110,10 @@ public class NegocioImplementacion implements NegocioServicio {
         boolean esMayorDeEdad = comprobarEdad(filtroNombreDTO.cedula());
 
         if(esMayorDeEdad){
-            return negocioRepo.findByNombreRegex(filtroNombreDTO.nombre());
+            return negocioRepo.findByNombreRegex(filtroNombreDTO.nombre(), 1);
         }
 
-        List<Negocio> negocios = negocioRepo.findByNombreRegex(filtroNombreDTO.nombre());
+        List<Negocio> negocios = negocioRepo.findByNombreRegex(filtroNombreDTO.nombre(), 1);
         List<Negocio> negocioList = new ArrayList<>();
         for (Negocio n: negocios){
             if (n.getCodTipoNegocio().getRestriccion() == 0){
@@ -122,7 +133,7 @@ public class NegocioImplementacion implements NegocioServicio {
             return null;
         }
 
-        return negocioRepo.findByCodTipoNegocio(filtroTipoDTO.tipo());
+        return negocioRepo.findByCodTipoNegocioAndEstado(filtroTipoDTO.tipo(), 1);
     }
 
     @Override

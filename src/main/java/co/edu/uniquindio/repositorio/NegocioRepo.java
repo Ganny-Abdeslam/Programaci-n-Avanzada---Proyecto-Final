@@ -10,9 +10,9 @@ import java.util.List;
 public interface NegocioRepo extends MongoRepository<Negocio, String> {
     List<Negocio> findByEstado(int estado);
 
-    List<Negocio> findByCodTipoNegocio(String tipoNegocioId);
+    List<Negocio> findByCodTipoNegocioAndEstado(String tipoNegocioId, int estado);
 
     List<Negocio> findByCedulaCliente(String cedula);
 
-    List<Negocio> findByNombreRegex(String nombreRegex);
+    List<Negocio> findByNombreRegex(String nombreRegex, int estado);
 }

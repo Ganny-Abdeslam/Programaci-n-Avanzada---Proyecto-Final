@@ -35,13 +35,18 @@ public class NegocioControlador {
     }
 
     @GetMapping("/filtroTipo")
-    public ResponseEntity<MensajeDTO<List<Negocio>>> filtrarPorTipo(FiltroTipoDTO filtroTipoDTO){
+    public ResponseEntity<MensajeDTO<List<Negocio>>> filtrarPorTipo(@Valid @RequestBody FiltroTipoDTO filtroTipoDTO){
         return ResponseEntity.ok().body( new MensajeDTO<>(false, negocioImplementacion.negociosTipo(filtroTipoDTO)));
     }
 
     @GetMapping("/filtroNombre")
-    public ResponseEntity<MensajeDTO<List<Negocio>>> filtrarPorNombre(FiltroNombreDTO filtroNombreDTO){
+    public ResponseEntity<MensajeDTO<List<Negocio>>> filtrarPorNombre(@Valid @RequestBody FiltroNombreDTO filtroNombreDTO){
         return ResponseEntity.ok().body( new MensajeDTO<>(false, negocioImplementacion.negocioNombre(filtroNombreDTO)));
+    }
+
+    @GetMapping("/todoLosNegocios/{cedula}")
+    public ResponseEntity<MensajeDTO<List<Negocio>>> filtrarPorNombre(String cedula){
+        return ResponseEntity.ok().body( new MensajeDTO<>(false, negocioImplementacion.listarNegocios(cedula)));
     }
 
     @GetMapping("/listarNegociosPropiedad/{cedula}")
