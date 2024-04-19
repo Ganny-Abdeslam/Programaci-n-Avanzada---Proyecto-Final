@@ -14,5 +14,5 @@ public interface NegocioRepo extends MongoRepository<Negocio, String> {
 
     List<Negocio> findByCedulaCliente(String cedula);
 
-    List<Negocio> findByNombreRegex(String nombreRegex, int estado);
+    List<Negocio> findByNombreRegex(String nombreRegex);
 }

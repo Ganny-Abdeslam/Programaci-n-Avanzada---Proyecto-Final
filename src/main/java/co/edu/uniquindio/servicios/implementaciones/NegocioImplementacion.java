@@ -115,10 +115,10 @@ public class NegocioImplementacion implements NegocioServicio {
         boolean esMayorDeEdad = comprobarEdad(filtroNombreDTO.cedula());
 
         if(esMayorDeEdad){
-            return negocioRepo.findByNombreRegex(filtroNombreDTO.nombre(), 1);
+            return negocioRepo.findByNombreRegex(filtroNombreDTO.nombre());
         }
 
-        List<Negocio> negocios = negocioRepo.findByNombreRegex(filtroNombreDTO.nombre(), 1);
+        List<Negocio> negocios = negocioRepo.findByNombreRegex(filtroNombreDTO.nombre());
         List<Negocio> negocioList = new ArrayList<>();
         for (Negocio n: negocios){
             if (n.getCodTipoNegocio().getRestriccion() == 0){
