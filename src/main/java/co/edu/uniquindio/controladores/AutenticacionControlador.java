@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "http://localhost:8082")
 public class AutenticacionControlador {
     private final AutenticacionImplementacion autenticacionImplementacion;
     @PostMapping("/login-cliente")
