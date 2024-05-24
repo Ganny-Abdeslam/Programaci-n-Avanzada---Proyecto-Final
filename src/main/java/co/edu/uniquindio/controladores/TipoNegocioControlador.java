@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/tipo")
-@CrossOrigin(origins = "http://localhost:8082")
+@CrossOrigin(origins = "http://localhost:4200")
 @SecurityRequirement(name = "bearerAuth", scopes = {"MODERADOR"})
 public class TipoNegocioControlador {
     private final TipoNegocioImplementacion tipoNegocioImplementacion;
